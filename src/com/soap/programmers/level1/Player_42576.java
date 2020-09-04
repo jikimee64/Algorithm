@@ -4,14 +4,14 @@ package com.soap.programmers.level1;
 
 import java.util.*;
 
-public class Player {
+public class Player_42576 {
     public static void main(String[] args) {
-        Process process = new Process();
+        Player_Process process = new Player_Process();
         process.play();
     }
 }
 
-class Process {
+class Player_Process {
     public void play() {
         String[] participant = {"leo", "kiki", "eden"};
         String[] completion = {"eden", "kiki"};
@@ -25,12 +25,10 @@ class Process {
 
         for(String arg : participant){
             map.put(arg, map.getOrDefault(arg, 0) + 1);
-            System.out.println("participant : " + map.toString());
         }
 
         for(String arg : completion) {
             map.put(arg, map.get(arg) - 1);
-            System.out.println("completion : " + map.toString());
         }
 
         for(String key : map.keySet()) {
