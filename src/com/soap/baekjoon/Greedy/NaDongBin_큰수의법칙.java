@@ -53,6 +53,28 @@ public class NaDongBin_큰수의법칙 {
             m -= 1;
         }
 
+
+        /*
+        * for (int i = 1; i <= m; i++) {
+            if(i%k != 0){
+                sum += first;
+            }else{
+                sum += second;
+            }
+        }
+         이방법은 안되나?
+         * */
+
+        /* 수열 이용
+        //가장 큰 수가 더해지는 횟수 계산
+        int cnt = (m / (k + 1)) * k;
+        cnt += m % (k + 1); //나누어 떨어지지 않을 때 나머지 큰수, Ex) 4 4 4 3 4 4
+
+        int result = 0;
+        result += cnt * first; //가장 큰 수 더하기
+        result += (m - cnt) * second; //두 번째로 큰수 더하기
+         */
+
         System.out.println(answer);
 
     }
