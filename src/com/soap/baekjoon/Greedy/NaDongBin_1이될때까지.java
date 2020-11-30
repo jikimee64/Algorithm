@@ -22,11 +22,7 @@ public class NaDongBin_1이될때까지 {
             }
             n -= 1;
             count++;
-
-            System.out.println("ㅎㅇ");
         }
-
-
         System.out.println(count);
 /*
         Scanner in = new Scanner(System.in);
