@@ -22,9 +22,35 @@ public class NaDongBin_1이될때까지 {
             }
             n -= 1;
             count++;
+
+            System.out.println("ㅎㅇ");
         }
 
+
         System.out.println(count);
+/*
+        Scanner in = new Scanner(System.in);
+        StringTokenizer st1 = new StringTokenizer(in.nextLine(), " ");
+        int n = Integer.parseInt(st1.nextToken());
+        int k = Integer.parseInt(st1.nextToken());
+        int count = 0;
+
+        while (true) {
+            if (n == 1) {
+                break;
+            } else if (n % k == 0) {
+                n /= k;
+                count++;
+                continue;
+            }
+            n -= 1;
+            count++;
+
+            System.out.println("ㅎㅇ");
+        }
+
+
+        System.out.println(count);*/
 
         //N이 100억 이상일 때 방법
         /*
@@ -53,4 +79,5 @@ public class NaDongBin_1이될때까지 {
         */
 
     }
+
 }

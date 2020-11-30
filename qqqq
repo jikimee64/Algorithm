@@ -1,0 +1,1764 @@
+[33mcommit 4c1809a943635aba9e77a80188ec7d1d38d5aa6e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: WooCheol Kim <jikimee64@gmail.com>
+Date:   Sun Nov 29 20:10:59 2020 +0900
+
+    [20201129] 나동빈도서 숫자카드게임, 1이될때까지
+
+[1mdiff --git "a/src/com/soap/baekjoon/Greedy/NaDongBin_1\354\235\264\353\220\240\353\225\214\352\271\214\354\247\200.java" "b/src/com/soap/baekjoon/Greedy/NaDongBin_1\354\235\264\353\220\240\353\225\214\352\271\214\354\247\200.java"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c868b85[m
+[1m--- /dev/null[m
+[1m+++ "b/src/com/soap/baekjoon/Greedy/NaDongBin_1\354\235\264\353\220\240\353\225\214\352\271\214\354\247\200.java"[m
+[36m@@ -0,0 +1,56 @@[m
+[32m+[m[32mpackage com.soap.baekjoon.Greedy;[m
+[32m+[m
+[32m+[m[32mimport java.util.Scanner;[m
+[32m+[m[32mimport java.util.StringTokenizer;[m
+[32m+[m
+[32m+[m[32mpublic class NaDongBin_1이될때까지 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m
+[32m+[m[32m        Scanner in = new Scanner(System.in);[m
+[32m+[m[32m        StringTokenizer st1 = new StringTokenizer(in.nextLine(), " ");[m
+[32m+[m[32m        int n = Integer.parseInt(st1.nextToken());[m
+[32m+[m[32m        int k = Integer.parseInt(st1.nextToken());[m
+[32m+[m[32m        int count = 0;[m
+[32m+[m
+[32m+[m[32m        while (true) {[m
+[32m+[m[32m            if (n == 1) {[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            } else if (n % k == 0) {[m
+[32m+[m[32m                n /= k;[m
+[32m+[m[32m                count++;[m
+[32m+[m[32m                continue;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            n -= 1;[m
+[32m+[m[32m            count++;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        System.out.println(count);[m
+[32m+[m
+[32m+[m[32m        //N이 100억 이상일 때 방법[m
+[32m+[m[32m        /*[m
+[32m+[m[32m            while (true) {[m
+[32m+[m[32m                // N이 K로 나누어 떨어지는 수가 될 때까지만 1씩 빼기[m
+[32m+[m[32m                int target = (n / k) * k;[m
+[32m+[m[32m                result += (n - target);[m
+[32m+[m[32m                n = target;[m
+[32m+[m[32m                System.out.println("초기 n : " + n);[m
+[32m+[m[32m                // N이 K보다 작을 때 (더 이상 나눌 수 없을 때) 반복문 탈출[m
+[32m+[m[32m                if (n < k){[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                }[m
+[32m+[m[32m                // K로 나누기[m
+[32m+[m[32m                result += 1;[m
+[32m+[m[32m                n /= k;[m
+[32m+[m[32m                System.out.println("n : " + n);[m
+[32m+[m[32m                System.out.println("result : " + result);[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            // 마지막으로 남은 수에 대하여 1씩 빼기[m
+[32m+[m[32m            ex) 만약 k가 6이면 n이 6미만일때 탈출, 만약 n이 4이면[m
+[32m+[m[32m            1이 될때까지 3을 빼야 되므로 (4 - 1) = 3을 result에 더해준다.[m
+[32m+[m[32m            result += (n - 1);[m
+[32m+[m[32m            System.out.println(result);[m
+[32m+[m[32m        */[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git "a/src/com/soap/baekjoon/Greedy/NaDongBin_\354\210\253\354\236\220\354\271\264\353\223\234\352\262\214\354\236\204.java" "b/src/com/soap/baekjoon/Greedy/NaDongBin_\354\210\253\354\236\220\354\271\264\353\223\234\352\262\214\354\236\204.java"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4c9abce[m
+[1m--- /dev/null[m
+[1m+++ "b/src/com/soap/baekjoon/Greedy/NaDongBin_\354\210\253\354\236\220\354\271\264\353\223\234\352\262\214\354\236\204.java"[m
+[36m@@ -0,0 +1,58 @@[m
+[32m+[m[32mpackage com.soap.baekjoon.Greedy;[m
+[32m+[m
+[32m+[m[32mimport java.util.ArrayList;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m[32mimport java.util.Scanner;[m
+[32m+[m[32mimport java.util.StringTokenizer;[m
+[32m+[m
+[32m+[m[32mpublic class NaDongBin_숫자카드게임 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m
+[32m+[m[32m        Scanner in = new Scanner(System.in);[m
+[32m+[m[32m        StringTokenizer st1 = new StringTokenizer(in.nextLine(), " ");[m
+[32m+[m[32m        List<StringTokenizer> list = new ArrayList<>();[m
+[32m+[m
+[32m+[m[32m        int n = Integer.parseInt(st1.nextToken());[m
+[32m+[m[32m        int m = Integer.parseInt(st1.nextToken());[m
+[32m+[m[32m        int answer = 0;[m
+[32m+[m
+[32m+[m[32m        int[][] arr = new int[n][m];[m
+[32m+[m
+[32m+[m[32m        //배열 입력[m
+[32m+[m[32m        for (int i = 0; i < arr.length; i++) {[m
+[32m+[m[32m            list.add(new StringTokenizer(in.nextLine(), " "));[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //배열 삽입[m
+[32m+[m[32m        for (int i = 0; i < n; i++) {[m
+[32m+[m[32m            for (int j = 0; j < m; j++) {[m
+[32m+[m[32m                arr[i][j] = Integer.parseInt(list.get(i).nextToken());[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //가장 작은 수 찾기[m
+[32m+[m[32m        for (int i = 0; i < n; i++) {[m
+[32m+[m[32m            for (int j = 1; j < m; j++) {[m
+[32m+[m[32m                answer = Math.min(arr[i][j-1], arr[i][j]);[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //나동빈 : 각 줄마다 입력을 받아서 가장 작은 값 get,[m
+[32m+[m[32m        int result = 0;[m
+[32m+[m[32m        for (int i = 0; i < n; i++) {[m
+[32m+[m[32m            int minvalue = 100000;[m
+[32m+[m[32m            //현재 줄에서 '가장 작은 수 찾기'[m
+[32m+[m[32m            for (int j = 0; j < m; j++) {[m
+[32m+[m[32m                int min = in.nextInt();[m
+[32m+[m[32m                minvalue = Math.min(minvalue, min);[m
+[32m+[m[32m            }[m
+[32m+[m[32m            //'가장 작은 수'들 중에서 가장 큰 수 찾기[m
+[32m+[m[32m            result = Math.max(result, minvalue);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        System.out.println(answer);[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git "a/src/com/soap/baekjoon/Greedy/NaDongBin_\355\201\260\354\210\230\354\235\230\353\262\225\354\271\231.java" "b/src/com/soap/baekjoon/Greedy/NaDongBin_\355\201\260\354\210\230\354\235\230\353\262\225\354\271\231.java"[m
+[1mindex 5b01079..0f3dab1 100644[m
+[1m--- "a/src/com/soap/baekjoon/Greedy/NaDongBin_\355\201\260\354\210\230\354\235\230\353\262\225\354\271\231.java"[m
+[1m+++ "b/src/com/soap/baekjoon/Greedy/NaDongBin_\355\201\260\354\210\230\354\235\230\353\262\225\354\271\231.java"[m
+[36m@@ -53,6 +53,28 @@[m [mpublic class NaDongBin_큰수의법칙 {[m
+             m -= 1;[m
+         }[m
+ [m
+[32m+[m
+[32m+[m[32m        /*[m
+[32m+[m[32m        * for (int i = 1; i <= m; i++) {[m
+[32m+[m[32m            if(i%k != 0){[m
+[32m+[m[32m                sum += first;[m
+[32m+[m[32m            }else{[m
+[32m+[m[32m                sum += second;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m         이방법은 안되나?[m
+[32m+[m[32m         * */[m
+[32m+[m
+[32m+[m[32m        /* 수열 이용[m
+[32m+[m[32m        //가장 큰 수가 더해지는 횟수 계산[m
+[32m+[m[32m        int cnt = (m / (k + 1)) * k;[m
+[32m+[m[32m        cnt += m % (k + 1); //나누어 떨어지지 않을 때 나머지 큰수, Ex) 4 4 4 3 4 4[m
+[32m+[m
+[32m+[m[32m        int result = 0;[m
+[32m+[m[32m        result += cnt * first; //가장 큰 수 더하기[m
+[32m+[m[32m        result += (m - cnt) * second; //두 번째로 큰수 더하기[m
+[32m+[m[32m         */[m
+[32m+[m
+         System.out.println(answer);[m
+ [m
+     }[m
+
+[33mcommit 3755770a0b7bddd05120ed71520e57f1556b78d4[m
+Author: WooCheol Kim <jikimee64@gmail.com>
+Date:   Tue Nov 24 23:44:46 2020 +0900
+
+    [20201124] 그리디 알고리즘 / 백준 5585 / 나동빈도서 큰 수의 법칙 - 1회차
+
+[1mdiff --git a/src/com/soap/baekjoon/Greedy/BJ_5585.java b/src/com/soap/baekjoon/Greedy/BJ_5585.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7991762[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/baekjoon/Greedy/BJ_5585.java[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32mpackage com.soap.baekjoon.Greedy;[m
+[32m+[m
+[32m+[m[32mimport java.util.Scanner;[m
+[32m+[m
+[32m+[m[32mpublic class BJ_5585 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m
+[32m+[m[32m        int[] arr = {500,100,50,10,5,1};[m
+[32m+[m[32m        int count = 0;[m
+[32m+[m
+[32m+[m[32m        Scanner in = new Scanner(System.in);[m
+[32m+[m[32m        int a = in.nextInt();[m
+[32m+[m[32m        a = 1000 - a;[m
+[32m+[m
+[32m+[m[32m        for(int i=0; i<arr.length; i++){[m
+[32m+[m[32m            count += a/arr[i];[m
+[32m+[m[32m            a = a%arr[i];[m
+[32m+[m[32m        }[m
+[32m+[m[32m        System.out.println(count);[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git "a/src/com/soap/baekjoon/Greedy/NaDongBin_\355\201\260\354\210\230\354\235\230\353\262\225\354\271\231.java" "b/src/com/soap/baekjoon/Greedy/NaDongBin_\355\201\260\354\210\230\354\235\230\353\262\225\354\271\231.java"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5b01079[m
+[1m--- /dev/null[m
+[1m+++ "b/src/com/soap/baekjoon/Greedy/NaDongBin_\355\201\260\354\210\230\354\235\230\353\262\225\354\271\231.java"[m
+[36m@@ -0,0 +1,59 @@[m
+[32m+[m[32mpackage com.soap.baekjoon.Greedy;[m
+[32m+[m
+[32m+[m[32mimport java.io.BufferedReader;[m
+[32m+[m[32mimport java.io.IOException;[m
+[32m+[m[32mimport java.io.InputStreamReader;[m
+[32m+[m[32mimport java.util.Arrays;[m
+[32m+[m[32mimport java.util.StringTokenizer;[m
+[32m+[m
+[32m+[m[32mpublic class NaDongBin_큰수의법칙 {[m
+[32m+[m[32m    public static void main(String[] args) throws IOException {[m
+[32m+[m
+[32m+[m[32m        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));[m
+[32m+[m[32m        StringTokenizer st = new StringTokenizer(br.readLine(), " ");[m
+[32m+[m[32m        StringTokenizer st2 = new StringTokenizer(br.readLine(), " ");[m
+[32m+[m
+[32m+[m[32m        int[] arr = new int[3];[m
+[32m+[m[32m        int arrCount = 0;[m
+[32m+[m[32m        int[] num = null;[m
+[32m+[m[32m        int numCount = 0;[m
+[32m+[m[32m        int answer = 0;[m
+[32m+[m
+[32m+[m[32m        while(st.hasMoreTokens()){[m
+[32m+[m[32m            arr[arrCount] = Integer.parseInt(st.nextToken());[m
+[32m+[m[32m            arrCount++;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        int n = arr[0];[m
+[32m+[m[32m        int m = arr[1];[m
+[32m+[m[32m        int k = arr[2];[m
+[32m+[m
+[32m+[m[32m        num = new int[n];[m
+[32m+[m[32m        while(st2.hasMoreTokens()) {[m
+[32m+[m[32m            num[numCount] = Integer.parseInt(st2.nextToken());[m
+[32m+[m[32m            numCount++;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        Arrays.sort(num);[m
+[32m+[m
+[32m+[m[32m        int first = num[num.length-1];[m
+[32m+[m[32m        int second = num[num.length-2];[m
+[32m+[m
+[32m+[m[32m        outer : while(true){[m
+[32m+[m[32m            for(int i=0; i<k; i++){[m
+[32m+[m[32m                if(m == 0){[m
+[32m+[m[32m                    break outer;[m
+[32m+[m[32m                }[m
+[32m+[m[32m                answer += first;[m
+[32m+[m[32m                m -= 1;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            if(m == 0){[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            answer += second;[m
+[32m+[m[32m            m -= 1;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        System.out.println(answer);[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+
+[33mcommit 677f9cb0500dea379eb50be95ef7ff3603d58209[m
+Author: WooCheol Kim <jikimee64@gmail.com>
+Date:   Sun Nov 22 21:51:54 2020 +0900
+
+    [20201122] 프로그래머스 Level2 42586
+
+[1mdiff --git a/src/com/soap/programmers/level2/function_42586.java b/src/com/soap/programmers/level2/function_42586.java[m
+[1mindex 8c92fe3..e4fb251 100644[m
+[1m--- a/src/com/soap/programmers/level2/function_42586.java[m
+[1m+++ b/src/com/soap/programmers/level2/function_42586.java[m
+[36m@@ -2,9 +2,8 @@[m [mpackage com.soap.programmers.level2;[m
+ [m
+ //https://programmers.co.kr/learn/courses/30/lessons/42586[m
+ [m
+[31m-import java.util.ArrayList;[m
+[31m-import java.util.HashMap;[m
+[31m-import java.util.List;[m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m[32mimport java.util.concurrent.ConcurrentLinkedQueue;[m
+ [m
+ public class function_42586 {[m
+     public static void main(String[] args) {[m
+[36m@@ -18,13 +17,14 @@[m [mclass function_42586_Process {[m
+         int progresses[] = {93, 30, 55};[m
+         int speeds[] = {1,30,5};[m
+ [m
+[31m-        int result[] = solution(progresses, speeds);[m
+[32m+[m[32m        int result[] = solution2(progresses, speeds);[m
+         for(Integer temp : result){[m
+             System.out.print(temp + " / ");[m
+         }[m
+     }[m
+ [m
+[31m-    public int[] solution(int[] progresses, int[] speeds) {[m
+[32m+[m[32m    //풀다 포기기[m
+[32m+[m[32m   public int[] solution(int[] progresses, int[] speeds) {[m
+         int[] answer = {};[m
+ [m
+         List<Integer> list = new ArrayList<>();[m
+[36m@@ -85,5 +85,58 @@[m [mclass function_42586_Process {[m
+         return answer;[m
+     }[m
+ [m
+[32m+[m
+[32m+[m[32m    //해답1 배열이용[m
+[32m+[m[32m    //https://kyeahen.github.io/algorithm/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-42586-%EA%B8%B0%EB%8A%A5-%EA%B0%9C%EB%B0%9C/[m
+[32m+[m[32m    public int[] solution2(int[] progresses, int[] speeds) {[m
+[32m+[m[32m        int[] resultArr = new int[100];[m
+[32m+[m
+[32m+[m[32m        int day = 0;[m
+[32m+[m[32m        for(int i=0; i<progresses.length; i++){[m
+[32m+[m[32m            while(100 > progresses[i] + (day * speeds[i])) {[m
+[32m+[m[32m                day++;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            resultArr[day]++;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return Arrays.stream(resultArr).filter(i -> i != 0).toArray();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //해답2 큐이용[m
+[32m+[m[32m    //https://taesan94.tistory.com/36[m
+[32m+[m[32m    public int[] solution3(int[] progresses, int[] speeds) {[m
+[32m+[m[32m        int[] answer = {};[m
+[32m+[m
+[32m+[m[32m        Queue<Integer> periods = new LinkedList<>();[m
+[32m+[m
+[32m+[m[32m        //평균 소요기간[m
+[32m+[m[32m        for(int i=0; i< speeds.length; i++){[m
+[32m+[m[32m            int value = (100-progresses[i] / speeds[i]);[m
+[32m+[m[32m            if( (100-progresses[i]) % speeds[i] != 0)[m
+[32m+[m[32m                value++;[m
+[32m+[m[32m            periods.add(value);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        List<Integer> result = new ArrayList<>();[m
+[32m+[m
+[32m+[m[32m        while( !periods.isEmpty()){[m
+[32m+[m[32m            int cnt = 1;[m
+[32m+[m[32m            int period = periods.poll();[m
+[32m+[m[32m            while( !periods.isEmpty() && period >= periods.peek()){[m
+[32m+[m[32m               periods.poll();[m
+[32m+[m[32m               cnt++;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            result.add(cnt);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        answer = new int[result.size()];[m
+[32m+[m
+[32m+[m[32m        for ( int i = 0 ; i < answer.length; i++ ) {[m
+[32m+[m[32m            answer[i] = result.get(i);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+ }[m
+ [m
+
+[33mcommit 41879e01a5d419fb1023939ecdbd7dcaf0157b23[m
+Author: WooCheol Kim <jikimee64@gmail.com>
+Date:   Fri Nov 20 23:07:10 2020 +0900
+
+    [20201120] 프로그래머스 Level2 42577, 42586(푸는중)
+
+[1mdiff --git a/src/com/soap/programmers/level2/function_42586.java b/src/com/soap/programmers/level2/function_42586.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8c92fe3[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level2/function_42586.java[m
+[36m@@ -0,0 +1,89 @@[m
+[32m+[m[32mpackage com.soap.programmers.level2;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/42586[m
+[32m+[m
+[32m+[m[32mimport java.util.ArrayList;[m
+[32m+[m[32mimport java.util.HashMap;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32mpublic class function_42586 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        function_42586_Process process = new function_42586_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass function_42586_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        int progresses[] = {93, 30, 55};[m
+[32m+[m[32m        int speeds[] = {1,30,5};[m
+[32m+[m
+[32m+[m[32m        int result[] = solution(progresses, speeds);[m
+[32m+[m[32m        for(Integer temp : result){[m
+[32m+[m[32m            System.out.print(temp + " / ");[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int[] solution(int[] progresses, int[] speeds) {[m
+[32m+[m[32m        int[] answer = {};[m
+[32m+[m
+[32m+[m[32m        List<Integer> list = new ArrayList<>();[m
+[32m+[m[32m        List<Integer> progressesArr = new ArrayList<>();[m
+[32m+[m[32m        List<Integer> speedsArr = new ArrayList<>();[m
+[32m+[m[32m        HashMap<Integer, Boolean> map = new HashMap<Integer, Boolean>();[m
+[32m+[m
+[32m+[m[32m        for(int i=0; i<progresses.length; i++){[m
+[32m+[m[32m            map.put(i, false);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for(Integer progres : progresses){[m
+[32m+[m[32m            progressesArr.add(progres);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for(Integer speed : speeds){[m
+[32m+[m[32m            speedsArr.add(speed);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m      /*  System.out.println(speedsArr.get(0));[m
+[32m+[m[32m        progressesArr.set(0, progressesArr.get(0) + speedsArr.get(0));[m
+[32m+[m[32m        System.out.println(progressesArr.get(0));*/[m
+[32m+[m
+[32m+[m[32m        int sum = 0;[m
+[32m+[m[32m        while(true){[m
+[32m+[m[32m           System.out.println(sum);[m
+[32m+[m
+[32m+[m[32m            if(sum >= progresses.length){[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            //조건값에 따른 순회 count[m
+[32m+[m[32m            for(int i=0; i<progressesArr.size(); i++){[m
+[32m+[m[32m                if(progressesArr.get(i) <= 100){[m
+[32m+[m[32m                    progressesArr.set(i, progressesArr.get(i) + speedsArr.get(i));[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            int count=0;[m
+[32m+[m[32m            //배포체크[m
+[32m+[m[32m            for(int i=0; i<progressesArr.size(); i++){[m
+[32m+[m[32m                if(progressesArr.get(i)>=100){[m
+[32m+[m[32m                    map.put(i, true);[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m            if(count > 0){[m
+[32m+[m[32m                list.add(count);[m
+[32m+[m[32m                sum += count;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            count = 0;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        answer = new int[list.size()];[m
+[32m+[m[32m        for(int k=0; k<list.size(); k++){[m
+[32m+[m[32m            answer[k] = list.get(k);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[1mdiff --git a/src/com/soap/programmers/level2/phoneBook_42577.java b/src/com/soap/programmers/level2/phoneBook_42577.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..704fb9c[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level2/phoneBook_42577.java[m
+[36m@@ -0,0 +1,42 @@[m
+[32m+[m[32mpackage com.soap.programmers.level2;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/42577?language=java[m
+[32m+[m
+[32m+[m[32mimport java.util.HashMap;[m
+[32m+[m
+[32m+[m[32mpublic class phoneBook_42577 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        phoneBook_42577_Process process = new phoneBook_42577_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass phoneBook_42577_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        boolean result = solution(new String[]{"12", "123", "1235", "567"});[m
+[32m+[m[32m        System.out.println("정답 : " + result);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public boolean solution(String[] phone_book) {[m
+[32m+[m[32m        boolean answer = true;[m
+[32m+[m[32m        HashMap<Integer, String> map = new HashMap();[m
+[32m+[m[32m        int count = 0;[m
+[32m+[m[32m        for(String arg : phone_book){[m
+[32m+[m[32m            map.put(count, arg);[m
+[32m+[m[32m            count++;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        outer : for(Integer key : map.keySet()) {[m
+[32m+[m[32m            String first = map.get(key);[m
+[32m+[m[32m            for(int i=0; i<phone_book.length; i++){[m
+[32m+[m[32m                if(key == i){[m
+[32m+[m[32m                    continue;[m
+[32m+[m[32m                }else if(first.startsWith(phone_book[i])){[m
+[32m+[m[32m                    answer = false;[m
+[32m+[m[32m                    break outer;[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+
+[33mcommit ad2e471a234a6572fdaf7b30e1973aac161a3c4c[m
+Author: WooCheol Kim <jikimee64@gmail.com>
+Date:   Sun Nov 15 23:05:55 2020 +0900
+
+    [20201115] 프로그래머스 Level1 68664
+
+[1mdiff --git a/src/com/soap/programmers/level1/TwoNumber_68664.java b/src/com/soap/programmers/level1/TwoNumber_68664.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ae43604[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/TwoNumber_68664.java[m
+[36m@@ -0,0 +1,93 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/68644?language=java[m
+[32m+[m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+[32m+[m[32mpublic class TwoNumber_68664 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        TwoNumber_Process process = new TwoNumber_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass TwoNumber_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        int[] arr = new int[]{2, 1, 3, 4, 1};[m
+[32m+[m[32m        int[] result = solution(arr);[m
+[32m+[m[32m        System.out.println("정답");[m
+[32m+[m[32m        for (int num : result) {[m
+[32m+[m[32m            System.out.print(num + ", ");[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int[] solution(int[] numbers) {[m
+[32m+[m[32m        int[] answer = {};[m
+[32m+[m[32m        ArrayList<Integer> arrayList = new ArrayList<>();[m
+[32m+[m[32m        int index = 0;[m
+[32m+[m
+[32m+[m[32m        //내코드[m
+[32m+[m[32m//        for(int i=0; i<numbers.length; i++){[m
+[32m+[m[32m//            index = numbers[i];[m
+[32m+[m[32m//            for(int j=0; j<numbers.length; j++){[m
+[32m+[m[32m//                int temp = 0;[m
+[32m+[m[32m//                temp = index + numbers[j];[m
+[32m+[m[32m//                if(arrayList.contains(temp)) { //answer안에 있다면[m
+[32m+[m[32m//                    continue;[m
+[32m+[m[32m//                }else if(numbers[j] == index && i == j){[m
+[32m+[m[32m//                    continue;[m
+[32m+[m[32m//                }[m
+[32m+[m[32m//                arrayList.add(temp);[m
+[32m+[m[32m//            }[m
+[32m+[m[32m//        }[m
+[32m+[m
+[32m+[m[32m        //다른사람 풀이1[m
+[32m+[m[32m        for (int i = 0; i < numbers.length; i++) {[m
+[32m+[m[32m            for (int j = i + 1; j < numbers.length; j++) {[m
+[32m+[m[32m                int temp = numbers[i] + numbers[j];[m
+[32m+[m[32m                /*[m
+[32m+[m[32m                ArrayList.indexOf()[m
+[32m+[m[32m                indexOf(Object o)는 인자로 객체를 받는다.[m
+[32m+[m[32m                리스트의 앞쪽부터 인자와 동일한 객체가 있는지 찾으며,[m
+[32m+[m[32m                존재한다면 그 인덱스를 리턴. 존재하지 않는다면 -1을 리턴[m
+[32m+[m[32m                 */[m
+[32m+[m[32m                if (arrayList.indexOf(temp) < 0) {[m
+[32m+[m[32m                    arrayList.add(temp);[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        /*[m
+[32m+[m[32m        다른사람 풀이2(고급)[m
+[32m+[m[32m        HashSet은 중복이 제거가 되므로, 중복에 대해 신경쓸 필요가 없음![m
+[32m+[m[32m        Set<Integer> hashSet = new HashSet<>();[m
+[32m+[m
+[32m+[m[32m        for (int i = 0; i < numbers.length; i++) {[m
+[32m+[m[32m            for (int j = i + 1; j < numbers.length; j++) {[m
+[32m+[m[32m               if(i != j){[m
+[32m+[m[32m                   hashSet.add(numbers[i] + numbers[j]);[m
+[32m+[m[32m               }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //HashSet to List 로 변환한 후, 정렬[m
+[32m+[m[32m        List<Integer> list = new ArrayList<>(hashSet);[m
+[32m+[m[32m        Collections.sort(list);[m
+[32m+[m
+[32m+[m[32m        //List의 제네릭 타입이 Integer이므로, int로 변환한다.[m
+[32m+[m[32m        return list.stream().mapToInt(i -> i).toArray();[m
+[32m+[m[32m        */[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        answer = new int[arrayList.size()];[m
+[32m+[m[32m        for (int i = 0; i < arrayList.size(); i++) {[m
+[32m+[m[32m            answer[i] += arrayList.get(i);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        Arrays.sort(answer);[m
+[32m+[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+
+[33mcommit 3a18d4e574511f907a33a723bce2772a902cf116[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Sat Oct 10 21:06:25 2020 +0900
+
+    [20201010] 프로그래머스 Level1 17682, 17681 (재업로드)
+
+[1mdiff --git a/src/com/soap/programmers/level1/Dart_KaKao_17682.java b/src/com/soap/programmers/level1/Dart_KaKao_17682.java[m
+[1mindex 1b4807b..7969c9d 100644[m
+[1m--- a/src/com/soap/programmers/level1/Dart_KaKao_17682.java[m
+[1m+++ b/src/com/soap/programmers/level1/Dart_KaKao_17682.java[m
+[36m@@ -1,4 +1,112 @@[m
+ package com.soap.programmers.level1;[m
+ [m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m[32m/*[m
+[32m+[m[32m * 분류1 : 옵션 존재 O X[m
+[32m+[m[32m * 분류2 : 옵션존재하지 않으면 알파벳으로 끊으면 됨[m
+[32m+[m[32m *[m
+[32m+[m[32m */[m
+[32m+[m
+ public class Dart_KaKao_17682 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        try {[m
+[32m+[m[32m            String sample = "1D10S0T";[m
+[32m+[m[32m            System.out.println(solution(sample));[m
+[32m+[m[32m        } catch (Exception e) {[m
+[32m+[m[32m            e.printStackTrace();[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //하다가 포기[m
+[32m+[m[32m    public static int solution(String dartResult) throws Exception {[m
+[32m+[m[32m        int answer = 0;[m
+[32m+[m[32m        HashMap<String, Integer> area = new HashMap<>();[m
+[32m+[m[32m        area.put("S", 1);[m
+[32m+[m[32m        area.put("D", 2);[m
+[32m+[m[32m        area.put("T", 3);[m
+[32m+[m
+[32m+[m[32m        HashMap<String, Integer> option = new HashMap<>();[m
+[32m+[m[32m        area.put("*", 2);[m
+[32m+[m[32m        area.put("#", -1);[m
+[32m+[m
+[32m+[m[32m//        char[] sample = new char[dartResult.length()];[m
+[32m+[m[32m//[m
+[32m+[m[32m//        //하나씩 삽입[m
+[32m+[m[32m//        for (int i = 0; i < sample.length; i++) {[m
+[32m+[m[32m//            sample[i] = dartResult.charAt(i);[m
+[32m+[m[32m//        }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        //옵션이 아무것도 포함되지 않을 경우[m
+[32m+[m[32m        if (!dartResult.contains("*") && !dartResult.contains("#")) {[m
+[32m+[m[32m            //숫자 제거 정규표현식[m
+[32m+[m[32m            String mu = dartResult.replaceAll("[0-9]", "");[m
+[32m+[m
+[32m+[m[32m            String str[] = dartResult.split("S|D|T");[m
+[32m+[m[32m            int x[] = new int[3];[m
+[32m+[m[32m            char y[] = new char[3];[m
+[32m+[m
+[32m+[m[32m            for (int i = 0; i < str.length; i++) {[m
+[32m+[m[32m                x[i] = Integer.parseInt(str[i]);[m
+[32m+[m[32m                y[i] = mu.charAt(i);[m
+[32m+[m[32m            }[m
+[32m+[m[32m            for (int i = 0; i < 3; i++) {[m
+[32m+[m[32m                answer += Math.pow(x[i], area.get(String.valueOf(y[i])));[m
+[32m+[m[32m            }[m
+[32m+[m[32m//            for (int i = 0; i < sample.length; i += 2) {[m
+[32m+[m[32m//                answer += Math.pow((sample[i] - '0'), area.get(String.valueOf(sample[i + 1])));[m
+[32m+[m[32m//            }[m
+[32m+[m
+[32m+[m[32m        } else {[m
+[32m+[m
+[32m+[m[32m            String num = dartResult.replaceAll("[^0-9]", "");[m
+[32m+[m[32m            String mu = dartResult.replaceAll("[0-9]", "");[m
+[32m+[m
+[32m+[m[32m            int x[] = new int[3];[m
+[32m+[m[32m            char y[] = new char[3];[m
+[32m+[m
+[32m+[m[32m            for (int i = 0; i < 3; i++) {[m
+[32m+[m[32m                x[i] = Integer.parseInt(String.valueOf(num.charAt(i)));[m
+[32m+[m[32m                y[i] = mu.charAt(i);[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public static int solution2(String dartResult) throws Exception {[m
+[32m+[m[32m        char[] darts = dartResult.toCharArray();[m
+[32m+[m[32m        int[] score = new int[3];[m
+[32m+[m[32m        int cnt = -1;[m
+[32m+[m
+[32m+[m[32m        for (int i = 0; i < darts.length; i++) {[m
+[32m+[m[32m            if (darts[i] >= '0' && darts[i] <= '9') {[m
+[32m+[m[32m                cnt++;[m
+[32m+[m[32m                if (darts[i] == '1' && darts[i + 1] == '0') {[m
+[32m+[m[32m                    score[cnt] = 10;[m
+[32m+[m[32m                    i++;[m
+[32m+[m[32m                } else {[m
+[32m+[m[32m                    score[cnt] = darts[i] - '0';[m
+[32m+[m[32m                }[m
+[32m+[m
+[32m+[m[32m            } else if (darts[i] == 'D') {[m
+[32m+[m[32m                score[cnt] *= score[cnt];[m
+[32m+[m[32m            } else if (darts[i] == 'T') {[m
+[32m+[m[32m                score[cnt] *= score[cnt] * score[cnt];[m
+[32m+[m[32m                ;[m
+[32m+[m[32m            } else if (darts[i] == '*') {[m
+[32m+[m[32m                if (cnt > 0) {[m
+[32m+[m[32m                    score[cnt - 1] *= 2;[m
+[32m+[m[32m                }[m
+[32m+[m[32m                score[cnt] *= 2;[m
+[32m+[m[32m            } else if (darts[i] == '#') {[m
+[32m+[m[32m                score[cnt] *= -1;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        } //for[m
+[32m+[m[32m        return score[0] + score[1] + score[2];[m
+[32m+[m[32m    }[m
+[32m+[m
+ }[m
+[1mdiff --git a/src/com/soap/programmers/level1/SecretMap_17681.java b/src/com/soap/programmers/level1/SecretMap_17681.java[m
+[1mindex 78e526b..667f782 100644[m
+[1m--- a/src/com/soap/programmers/level1/SecretMap_17681.java[m
+[1m+++ b/src/com/soap/programmers/level1/SecretMap_17681.java[m
+[36m@@ -1,4 +1,63 @@[m
+ package com.soap.programmers.level1;[m
+ [m
+[32m+[m[32mimport java.util.ArrayList;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+ public class SecretMap_17681 {[m
+[32m+[m
+[32m+[m[32m    //내풀이[m
+[32m+[m[32m    public String[] solution(int n, int[] arr1, int[] arr2) {[m
+[32m+[m[32m        String[] answer = new String[n];[m
+[32m+[m[32m        int[][] map1 = new int[n][n];[m
+[32m+[m[32m        int[][] map2 = new int[n][n];[m
+[32m+[m[32m        int[][] result = new int[n][n];[m
+[32m+[m
+[32m+[m[32m        int map1_index = 0;[m
+[32m+[m[32m        int map2_index = 0;[m
+[32m+[m
+[32m+[m[32m        for(int num : arr1){[m
+[32m+[m[32m            //System.out.println("num : " + num);[m
+[32m+[m[32m            String binaryString = String.format("%0"+n+"d", Long.parseLong(Integer.toBinaryString(num)));[m
+[32m+[m[32m            //System.out.println("ss : " + binaryString);[m
+[32m+[m[32m            for(int i = 0; i < n; i++){[m
+[32m+[m[32m                map1[map1_index][i] = binaryString.charAt(i) - '0';[m
+[32m+[m[32m                //map1[map1_index][i] = Integer.parseInt(binaryString.charAt(i));[m
+[32m+[m[32m            }[m
+[32m+[m[32m            map1_index++;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for(int num : arr2){[m
+[32m+[m[32m            String binaryString = String.format("%0"+n+"d", Long.parseLong(Integer.toBinaryString(num)));[m
+[32m+[m[32m            for(int i = 0; i < n; i++){[m
+[32m+[m[32m                map2[map2_index][i] = binaryString.charAt(i) - '0';[m
+[32m+[m[32m                //map2[map2_index][i] = Integer.parseInt(binaryString.charAt(i));[m
+[32m+[m[32m            }[m
+[32m+[m[32m            map2_index++;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for(int i = 0; i < n; i++){[m
+[32m+[m[32m            for(int j = 0; j < n; j++){[m
+[32m+[m[32m                result[i][j] = map1[i][j] | map2[i][j];[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for(int i = 0; i < n; i++){[m
+[32m+[m[32m            String a = "";[m
+[32m+[m[32m            for(int j = 0; j < n; j++){[m
+[32m+[m[32m                if(result[i][j] == 1){[m
+[32m+[m[32m                    a += "#";[m
+[32m+[m[32m                }else{[m
+[32m+[m[32m                    a += " ";[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m            answer[i] = a;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+ }[m
+
+[33mcommit 2856713c0a8eb66b2ddba9e94e8294c12ae288d2[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Sat Oct 10 21:05:39 2020 +0900
+
+    [20201010] 프로그래머스 Level1 17682, 17681
+
+[1mdiff --git a/src/com/soap/programmers/level1/Dart_KaKao_17682.java b/src/com/soap/programmers/level1/Dart_KaKao_17682.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1b4807b[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Dart_KaKao_17682.java[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32mpublic class Dart_KaKao_17682 {[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/com/soap/programmers/level1/SecretMap_17681.java b/src/com/soap/programmers/level1/SecretMap_17681.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..78e526b[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/SecretMap_17681.java[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32mpublic class SecretMap_17681 {[m
+[32m+[m[32m}[m
+
+[33mcommit 1eebf31fd506a14ca4488917406dc6962c8e5aae[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Sun Oct 4 23:22:25 2020 +0900
+
+    [20201004] 프로그래머스 Level1 64061, 42889 (재업로드)
+
+[1mdiff --git a/src/com/soap/programmers/level1/Crane_Kakao_64061.java b/src/com/soap/programmers/level1/Crane_Kakao_64061.java[m
+[1mindex 13852da..0e12af8 100644[m
+[1m--- a/src/com/soap/programmers/level1/Crane_Kakao_64061.java[m
+[1m+++ b/src/com/soap/programmers/level1/Crane_Kakao_64061.java[m
+[36m@@ -1,4 +1,69 @@[m
+ package com.soap.programmers.level1;[m
+ [m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+ public class Crane_Kakao_64061 {[m
+[32m+[m
+[32m+[m[32m    //내 풀이[m
+[32m+[m[32m    public int solution(int[][] board, int[] moves) {[m
+[32m+[m[32m        int answer = 0;[m
+[32m+[m[32m        List<Integer> list = new ArrayList();[m
+[32m+[m[32m        boolean flag = true;[m
+[32m+[m[32m        //바구니에 넣는 이중 for문[m
+[32m+[m[32m        for (int i : moves) {[m
+[32m+[m[32m            for (int z = 0; z < board.length; z++) {[m
+[32m+[m[32m                if (board[z][i - 1] != 0) {[m
+[32m+[m[32m                    int val = board[z][i - 1];[m
+[32m+[m[32m                    list.add(val);[m
+[32m+[m[32m                    board[z][i - 1] = 0;[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        //중복값 제거[m
+[32m+[m[32m        while (flag) {[m
+[32m+[m[32m            flag = false;[m
+[32m+[m[32m            int preNum = 0;[m
+[32m+[m[32m            for (int i = 0; i < list.size(); i++) {[m
+[32m+[m[32m                if (preNum == list.get(i)) {[m
+[32m+[m[32m                    answer += 2;[m
+[32m+[m[32m                    list.remove(i);[m
+[32m+[m[32m                    list.remove(i - 1);[m
+[32m+[m[32m                    flag = true;[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                } else {[m
+[32m+[m[32m                    preNum = list.get(i);[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    //---------------------------------------------------[m
+[32m+[m[32m    //다른사람 풀이[m
+[32m+[m[32m    public int solution2(int[][] board, int[] moves) {[m
+[32m+[m[32m        int answer = 0;[m
+[32m+[m
+[32m+[m[32m        int row = board.length;[m
+[32m+[m[32m        Stack<Integer> stack = new Stack<>();[m
+[32m+[m
+[32m+[m[32m        for(int pos : moves) {[m
+[32m+[m[32m            pos = pos - 1;[m
+[32m+[m[32m            for(int i=0; i<row; i++){[m
+[32m+[m[32m                if(board[i][pos] != 0){[m
+[32m+[m[32m                    int val = board[i][pos];[m
+[32m+[m[32m                    if(!stack.isEmpty() && stack.peek() == val){[m
+[32m+[m[32m                        stack.pop();[m
+[32m+[m[32m                        answer += 2;[m
+[32m+[m[32m                    }else{[m
+[32m+[m[32m                        stack.push(val);[m
+[32m+[m[32m                    }[m
+[32m+[m[32m                    board[i][pos] = 0;[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return 0;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+ }[m
+[1mdiff --git a/src/com/soap/programmers/level1/Failure_Kakao_42889.java b/src/com/soap/programmers/level1/Failure_Kakao_42889.java[m
+[1mindex 494ffed..26ceb81 100644[m
+[1m--- a/src/com/soap/programmers/level1/Failure_Kakao_42889.java[m
+[1m+++ b/src/com/soap/programmers/level1/Failure_Kakao_42889.java[m
+[36m@@ -1,4 +1,93 @@[m
+ package com.soap.programmers.level1;[m
+ [m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+ public class Failure_Kakao_42889 {[m
+[32m+[m
+[32m+[m[32m    //내풀이[m
+[32m+[m[32m    public int[] solution(int N, int[] stages) {[m
+[32m+[m[32m        int[] answer = new int[N];[m
+[32m+[m[32m        int humanNum = stages.length;[m
+[32m+[m[32m        int count = 0;[m
+[32m+[m[32m        List<Integer> list = new ArrayList();[m
+[32m+[m[32m        HashMap<Integer, Double> map = new HashMap();[m
+[32m+[m
+[32m+[m[32m        //stages배열 리스트에 삽입[m
+[32m+[m[32m        for (int i = 0; i < humanNum; i++) {[m
+[32m+[m[32m            list.add(stages[i]);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for (int i = 1; i <= N; i++) {[m
+[32m+[m[32m            for (int z = 0; z < list.size(); z++) {[m
+[32m+[m[32m                if (list.get(z) <= N && list.get(z) == i) {[m
+[32m+[m[32m                    count++;[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m            if (count == 0) {[m
+[32m+[m[32m                map.put((Integer) i, 0.0);[m
+[32m+[m[32m            } else {[m
+[32m+[m[32m                double num = (double) count / (double) humanNum;[m
+[32m+[m[32m                map.put((Integer) i, num);[m
+[32m+[m[32m            }[m
+[32m+[m[32m            humanNum -= count;[m
+[32m+[m[32m            count = 0;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //HashMap[m
+[32m+[m[32m        List<Integer> keySetList = new ArrayList<>(map.keySet());[m
+[32m+[m[32m        Collections.sort(keySetList, (o1, o2) -> (map.get(o2).compareTo(map.get(o1))));[m
+[32m+[m
+[32m+[m[32m        int index = 0;[m
+[32m+[m[32m        for (Integer key : keySetList) {[m
+[32m+[m[32m            answer[index] = key;[m
+[32m+[m[32m            index++;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    //------------------------------------------------------[m
+[32m+[m
+[32m+[m[32m    //https://leveloper.tistory.com/105[m
+[32m+[m[32m    //다른사람 풀이[m
+[32m+[m[32m    public int[] solution2(int N, int[] stages) {[m
+[32m+[m[32m        HashMap<Integer, Integer> map = new HashMap<>();[m
+[32m+[m[32m        //key : 스테이지, value : 스테이지아 존재하는 총 개수[m
+[32m+[m[32m       for(int s : stages){[m
+[32m+[m[32m            map.put(s, map.getOrDefault(s, 0) + 1);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m       int total = stages.length;[m
+[32m+[m[32m       Node[] nodes = new Node[N];[m
+[32m+[m[32m       for(int i=1; i<=N; i++){[m
+[32m+[m[32m           if(!map.containsKey(i)){[m
+[32m+[m[32m               nodes[i-1] = new Node(i, 0);[m
+[32m+[m[32m               continue;[m
+[32m+[m[32m           }[m
+[32m+[m[32m           int count = map.get(i);[m
+[32m+[m[32m           nodes[i-1] = new Node(i, (double)count/total);[m
+[32m+[m[32m           total -= count;[m
+[32m+[m[32m       }[m
+[32m+[m
+[32m+[m[32m       Arrays.sort(nodes);[m
+[32m+[m[32m       int[] answer = new int[N];[m
+[32m+[m[32m       for(int i = 0; i < N; i++){[m
+[32m+[m[32m           answer[i] = nodes[i].num;[m
+[32m+[m[32m       }[m
+[32m+[m[32m       return answer;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Node implements Comparable<Node> {[m
+[32m+[m[32m    int num;[m
+[32m+[m[32m    double rate;[m
+[32m+[m
+[32m+[m[32m    Node(int num, double rate){[m
+[32m+[m[32m        this.num = num;[m
+[32m+[m[32m        this.rate = rate;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public int compareTo(Node other) {[m
+[32m+[m[32m        //내림차순[m
+[32m+[m[32m        return Double.compare(other.rate, this.rate);[m
+[32m+[m[32m    }[m
+ }[m
+
+[33mcommit 5d37c30b32cb5ef837aef5cbca10cad80eafc4e5[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Sun Oct 4 23:21:42 2020 +0900
+
+    [20201004] 프로그래머스 Level1 64061, 42889
+
+[1mdiff --git a/src/com/soap/programmers/level1/Crane_Kakao_64061.java b/src/com/soap/programmers/level1/Crane_Kakao_64061.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..13852da[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Crane_Kakao_64061.java[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32mpublic class Crane_Kakao_64061 {[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/com/soap/programmers/level1/Failure_Kakao_42889.java b/src/com/soap/programmers/level1/Failure_Kakao_42889.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..494ffed[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Failure_Kakao_42889.java[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32mpublic class Failure_Kakao_42889 {[m
+[32m+[m[32m}[m
+
+[33mcommit 24789d6c590b3b10fa26c68e74c20a4c8c3c6f29[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Wed Sep 30 22:09:20 2020 +0900
+
+    프로그래머스 / Level1
+
+[1mdiff --git a/src/com/soap/programmers/level1/Sort_12915.java b/src/com/soap/programmers/level1/Sort_12915.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5439463[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Sort_12915.java[m
+[36m@@ -0,0 +1,36 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/12915[m
+[32m+[m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+[32m+[m[32mpublic class Sort_12915 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        Sort_12915_Process process = new Sort_12915_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Sort_12915_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        String[] array = {"sun", "bed", "car"};[m
+[32m+[m[32m        //int[] array = {1, 2, 3, 4, 5};[m
+[32m+[m[32m        String[] answer = solution(array, 1);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String[] solution(String[] strings, int n) {[m
+[32m+[m[32m        //String[] answer = {};[m
+[32m+[m[32m        Arrays.sort(strings, new Comparator<String>() {[m
+[32m+[m[32m            @Override[m
+[32m+[m[32m            public int compare(String s1, String s2) {[m
+[32m+[m[32m                if(s1.charAt(n) == s2.charAt(n)){[m
+[32m+[m[32m                    return s1.compareTo(s2);[m
+[32m+[m[32m                }else{[m
+[32m+[m[32m                    return s1.charAt(n) - s2.charAt(n);[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        return strings;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+
+[33mcommit def0226f014e80fa2cfe6e2e7eb777a3ace9b1ce[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Sat Sep 5 22:35:31 2020 +0900
+
+    프로그래머스 / Level1
+
+[1mdiff --git a/src/com/soap/programmers/level1/NoSame_Number_12906.java b/src/com/soap/programmers/level1/NoSame_Number_12906.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a4869a1[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/NoSame_Number_12906.java[m
+[36m@@ -0,0 +1,66 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/12906[m
+[32m+[m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+[32m+[m[32mpublic class NoSame_Number_12906 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        NoSame_Number_Process process = new NoSame_Number_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass NoSame_Number_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        //int[] array = {4, 4, 4, 3, 3};[m
+[32m+[m[32m        int[] array = {1, 1, 3, 3, 0, 1, 1};[m
+[32m+[m[32m        int[] answer = solution(array);[m
+[32m+[m[32m        System.out.println("정답 : " + answer);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //일반 풀이[m
+[32m+[m[32m   /* public int[] solution(int[] arr) {[m
+[32m+[m[32m        ArrayList<Integer> list = new ArrayList<>();[m
+[32m+[m[32m        for (int i = 0; i < arr.length - 1; i++) {[m
+[32m+[m[32m            if (arr[i] == arr[i + 1]) {[m
+[32m+[m[32m                if (i == arr.length - 2) {[m
+[32m+[m[32m                    //마지막 중복값은 다음행이 없기 때문에 비교 불가 -> 따로 추가[m
+[32m+[m[32m                    list.add(arr[i + 1]);[m
+[32m+[m[32m                }[m
+[32m+[m[32m                continue;[m
+[32m+[m[32m            } else {[m
+[32m+[m[32m                list.add(arr[i]);[m
+[32m+[m[32m                if (i == arr.length - 2) {[m
+[32m+[m[32m                    //마지막 중복값은 다음행이 없기 때문에 비교 불가 -> 따로 추가[m
+[32m+[m[32m                    list.add(arr[i + 1]);[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        int[] answer = new int[list.size()];[m
+[32m+[m[32m        for (int k = 0; k < answer.length; k++) {[m
+[32m+[m[32m            answer[k] = list.get(k);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }*/[m
+[32m+[m
+[32m+[m[32m    public int[] solution(int[] arr) {[m
+[32m+[m[32m        ArrayList<Integer> list = new ArrayList<>();[m
+[32m+[m[32m        int preNum = 10;[m
+[32m+[m[32m        for(int num : arr){[m
+[32m+[m[32m            if(preNum != num){[m
+[32m+[m[32m                list.add(num);[m
+[32m+[m[32m            }[m
+[32m+[m[32m            preNum = num;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        int[] answer = new int[list.size()];[m
+[32m+[m[32m        for (int k = 0; k < answer.length; k++) {[m
+[32m+[m[32m            answer[k] = list.get(k).intValue();[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //좋은 코드[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/com/soap/programmers/level1/year_2016_12901.java b/src/com/soap/programmers/level1/year_2016_12901.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..70759f6[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/year_2016_12901.java[m
+[36m@@ -0,0 +1,32 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/12901[m
+[32m+[m
+[32m+[m[32mpublic class year_2016_12901 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        year_2016_Process process = new year_2016_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass year_2016_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        String result = solution(5, 24);[m
+[32m+[m[32m        System.out.println("정답 : " + result);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String solution(int a, int b) {[m
+[32m+[m[32m        int total = 0;[m
+[32m+[m[32m        String arr[] = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};[m
+[32m+[m[32m        int mon[] = {31, 29, 31, 30, 31, 30,31, 31, 30, 31, 30, 31};[m
+[32m+[m[32m        String answer = "";[m
+[32m+[m
+[32m+[m[32m        for(int i = 0; i < a-1; i++){[m
+[32m+[m[32m            total += mon[i];[m
+[32m+[m[32m        }[m
+[32m+[m[32m        total += b-1; //arr의 인덱스는 0으로 시작하기 때문에 1을 빼줘야 함[m
+[32m+[m[32m        answer = arr[total%7];[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+
+[33mcommit 7b618fd8c96e85be2136a678c0e44ebb2ce1a066[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Sat Sep 5 01:58:55 2020 +0900
+
+    프로그래머스 / Level1
+
+[1mdiff --git a/src/com/soap/data_structure/SinglyLinkedList.java b/src/com/soap/data_structure/SinglyLinkedList.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..357549c[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/data_structure/SinglyLinkedList.java[m
+[36m@@ -0,0 +1,74 @@[m
+[32m+[m[32mpackage com.soap.data_structure;[m
+[32m+[m
+[32m+[m[32mpublic class SinglyLinkedList {[m
+[32m+[m[32m    public static void main(String[] args){[m
+[32m+[m[32m        Node head = new Node(1);[m
+[32m+[m[32m        head.append(2);[m
+[32m+[m[32m        head.append(3);[m
+[32m+[m[32m        head.append(4);[m
+[32m+[m[32m        head.retrieve();[m
+[32m+[m[32m        head.delete(2);[m
+[32m+[m[32m        head.delete(3);[m
+[32m+[m[32m        head.retrieve();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Node{[m
+[32m+[m[32m    int data; //데이터[m
+[32m+[m[32m    Node next = null; //다음 노드의 주소[m
+[32m+[m
+[32m+[m[32m    Node(int d){[m
+[32m+[m[32m        this.data = d;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //노드 삽입[m
+[32m+[m[32m    public void append(int data){[m
+[32m+[m[32m        //노드 생성[m
+[32m+[m[32m        Node end = new Node(data);[m
+[32m+[m[32m        //this가 뭐지? => 헤드 노드인가?[m
+[32m+[m[32m        //this : main메서드에서 생성한 Node 객체 자신의 참조값[m
+[32m+[m
+[32m+[m[32m        Node point = this;[m
+[32m+[m[32m        while(point.next != null){[m
+[32m+[m[32m            point = point.next;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        //새로운 노드추가[m
+[32m+[m[32m        point.next = end;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //노드 삭제[m
+[32m+[m[32m    //첫 번째 head는 삭제 불가능[m
+[32m+[m[32m    public void delete(int data){[m
+[32m+[m[32m        Node point = this;[m
+[32m+[m
+[32m+[m[32m        //현재 노드에서 다음 노드 비교 : 맨 마지막 노드 값까지 반복[m
+[32m+[m[32m        while(point.next != null){[m
+[32m+[m[32m            //현재 노드에서 다음 노드 데이터가 삭제할 노드인지 판단(head 삭제 불가능)[m
+[32m+[m[32m            if(point.next.data == data){[m
+[32m+[m[32m                //현재 노드에서 가리키던 다음 노드를 그 다음 다음 노드로...[m
+[32m+[m[32m                //마지막 노드 삭제시 마지막 노드의 이전노드는 null[m
+[32m+[m[32m                point.next = point.next.next;[m
+[32m+[m[32m            }else{[m
+[32m+[m[32m                //값을 찾기 위해서 다음 노드로 이동[m
+[32m+[m[32m                point = point.next;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //모든 노드 출력[m
+[32m+[m[32m    public void retrieve(){[m
+[32m+[m[32m        Node point = this;[m
+[32m+[m
+[32m+[m[32m        //마지막 노드 전 단계까지 반복[m
+[32m+[m[32m        while(point.next != null){[m
+[32m+[m[32m            System.out.print(point.data + " -> ");[m
+[32m+[m[32m            point = point.next;;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        //맨 마지막 노드 출력[m
+[32m+[m[32m        System.out.println(point.data);[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/src/com/soap/programmers/level1/Caesar_Password_12926.java b/src/com/soap/programmers/level1/Caesar_Password_12926.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2be66d1[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Caesar_Password_12926.java[m
+[36m@@ -0,0 +1,61 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/12926[m
+[32m+[m
+[32m+[m[32mpublic class Caesar_Password_12926 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        Caesar_Password_Process process = new Caesar_Password_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Caesar_Password_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        String s = "a B z";[m
+[32m+[m[32m        int n = 4;[m
+[32m+[m[32m        String result = solution(s, n);[m
+[32m+[m[32m        System.out.println("정답 : " + result);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //내방법[m
+[32m+[m[32m    public String solution(String s, int n) {[m
+[32m+[m[32m        String answer = "";[m
+[32m+[m[32m        for (int i = 0; i < s.length(); i++) {[m
+[32m+[m[32m            char ch = s.charAt(i);[m
+[32m+[m[32m            if(ch >= 'a' && ch <= 'z'){[m
+[32m+[m[32m                if(ch+n > 'z'){[m
+[32m+[m[32m                    answer += (char)(ch+n-26);[m
+[32m+[m[32m                }else{[m
+[32m+[m[32m                    answer += (char)(ch+n);[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }else if(ch >= 'A' && ch <= 'Z'){[m
+[32m+[m[32m                if(ch+n > 'Z'){[m
+[32m+[m[32m                    answer += (char)(ch+n-26);[m
+[32m+[m[32m                }else{[m
+[32m+[m[32m                    answer += (char)(ch+n);[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }else{[m
+[32m+[m[32m                answer += " ";[m
+[32m+[m[32m            }[m
+[32m+[m[32m            System.out.println("i answer : " + answer);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //인터넷 방법[m
+[32m+[m[32m    public String solution2(String s, int n) {[m
+[32m+[m[32m        String answer = "";[m
+[32m+[m[32m        for (int i = 0; i < s.length(); i++) {[m
+[32m+[m[32m            char ch = s.charAt(i);[m
+[32m+[m[32m            char start;[m
+[32m+[m[32m            if(ch != ' '){[m
+[32m+[m[32m                start = Character.isLowerCase(ch) ? 'a' : 'A';[m
+[32m+[m[32m                ch = (char)(start + (ch+n-start)%26); //이 알고리즘이 잘 생각이 안날듯[m
+[32m+[m[32m            }[m
+[32m+[m[32m            answer += ch;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[1mdiff --git a/src/com/soap/programmers/level1/Greedy_42862.java b/src/com/soap/programmers/level1/Greedy_42862.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2320e67[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Greedy_42862.java[m
+[36m@@ -0,0 +1,52 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/42862[m
+[32m+[m
+[32m+[m[32mpublic class Greedy_42862 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        Greedy_Process process = new Greedy_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Greedy_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        int n = 3; //전체 학생 수[m
+[32m+[m[32m        int[] lost = {3}; //체육복을 도난당한 학생들의 번호[m
+[32m+[m[32m        int[] reserve = {1}; //여벌의 체육복을 가져온 학생들의 번호[m
+[32m+[m[32m        int result = solution(n, lost, reserve); //체육 수업을 들을 수 있는 학생의 최댓값[m
+[32m+[m[32m        System.out.println("result : " + result);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //포기[m
+[32m+[m[32m    public int solution(int n, int[] lost, int[] reserve) {[m
+[32m+[m[32m        int answer = n - lost.length;[m
+[32m+[m
+[32m+[m[32m        //여벌 옷을 가지고 있는 학생이 도난 당하면 빌려줄 수 없도록 만든다.[m
+[32m+[m[32m        //-1은 임의의 수[m
+[32m+[m[32m        for (int i = 0; i < lost.length; i++) {[m
+[32m+[m[32m            for (int j = 0; j < reserve.length; j++) {[m
+[32m+[m[32m                if (lost[i]==reserve[j]) {[m
+[32m+[m[32m                    answer++;[m
+[32m+[m[32m                    lost[i] = -1;[m
+[32m+[m[32m                    reserve[j] = -1;[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //옷을 빌려주고 -1로 만들어 뒤의 학생에게 빌려주지 않게 한다.[m
+[32m+[m[32m        for(int i=0; i<lost.length; i++) {[m
+[32m+[m[32m            for(int j=0; j<reserve.length; j++) {[m
+[32m+[m[32m                if(lost[i]==reserve[j]+1 || lost[i]==reserve[j]-1) {[m
+[32m+[m[32m                    answer++;[m
+[32m+[m[32m                    reserve[j] = -1;[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/src/com/soap/programmers/level1/K_Number_42748.java b/src/com/soap/programmers/level1/K_Number_42748.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d41c872[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/K_Number_42748.java[m
+[36m@@ -0,0 +1,34 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/42748?language=java[m
+[32m+[m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+[32m+[m[32mpublic class K_Number_42748 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        K_Number_Process process = new K_Number_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass K_Number_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        int[] array = {1, 5, 2, 6, 3, 7, 4};[m
+[32m+[m[32m        int[][] commands = {[m
+[32m+[m[32m                {2,5,3},{4,4,1},{1,7,3}[m
+[32m+[m[32m        };[m
+[32m+[m[32m        int[] answer = solution(array, commands);[m
+[32m+[m[32m        System.out.println("정답 : " + answer.toString());[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int[] solution(int[] array, int[][] commands) {[m
+[32m+[m[32m        int[] answer = new int[commands.length];[m
+[32m+[m[32m        for(int i = 0; i < commands.length; i++){[m
+[32m+[m[32m            int[] temp = {};[m
+[32m+[m[32m            temp = Arrays.copyOfRange(array,commands[i][0]-1, commands[i][1]);[m
+[32m+[m[32m            Arrays.sort(temp);[m
+[32m+[m[32m            answer[i] = temp[commands[i][2]-1];[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/com/soap/programmers/level1/Player.java b/src/com/soap/programmers/level1/Player_42576.java[m
+[1msimilarity index 86%[m
+[1mrename from src/com/soap/programmers/level1/Player.java[m
+[1mrename to src/com/soap/programmers/level1/Player_42576.java[m
+[1mindex c83bbf1..5587110 100644[m
+[1m--- a/src/com/soap/programmers/level1/Player.java[m
+[1m+++ b/src/com/soap/programmers/level1/Player_42576.java[m
+[36m@@ -4,14 +4,14 @@[m [mpackage com.soap.programmers.level1;[m
+ [m
+ import java.util.*;[m
+ [m
+[31m-public class Player {[m
+[32m+[m[32mpublic class Player_42576 {[m
+     public static void main(String[] args) {[m
+[31m-        Process process = new Process();[m
+[32m+[m[32m        Player_Process process = new Player_Process();[m
+         process.play();[m
+     }[m
+ }[m
+ [m
+[31m-class Process {[m
+[32m+[m[32mclass Player_Process {[m
+     public void play() {[m
+         String[] participant = {"leo", "kiki", "eden"};[m
+         String[] completion = {"eden", "kiki"};[m
+[36m@@ -25,12 +25,10 @@[m [mclass Process {[m
+ [m
+         for(String arg : participant){[m
+             map.put(arg, map.getOrDefault(arg, 0) + 1);[m
+[31m-            System.out.println("participant : " + map.toString());[m
+         }[m
+ [m
+         for(String arg : completion) {[m
+             map.put(arg, map.get(arg) - 1);[m
+[31m-            System.out.println("completion : " + map.toString());[m
+         }[m
+ [m
+         for(String key : map.keySet()) {[m
+[1mdiff --git a/src/com/soap/programmers/level1/Practice_Test_42840.java b/src/com/soap/programmers/level1/Practice_Test_42840.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..90aa220[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Practice_Test_42840.java[m
+[36m@@ -0,0 +1,60 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/42840[m
+[32m+[m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+[32m+[m[32mpublic class Practice_Test_42840 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        Practice_Test_Process process = new Practice_Test_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Practice_Test_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        int[] array = {1, 3, 2, 4, 2};[m
+[32m+[m[32m        //int[] array = {1, 2, 3, 4, 5};[m
+[32m+[m[32m        int[] answer = solution(array);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int[] solution(int[] answers) {[m
+[32m+[m[32m        int[] answer = {};[m
+[32m+[m[32m        int[] person1 = {1, 2, 3, 4, 5}; //이만큼씩 반복[m
+[32m+[m[32m        int[] person2 = {2, 1, 2, 3, 2, 4, 2, 5};[m
+[32m+[m[32m        int[] person3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};[m
+[32m+[m[32m        int[] score = new int[3];[m
+[32m+[m
+[32m+[m[32m        for (int i = 0; i < answers.length; i++) {[m
+[32m+[m[32m            if (answers[i] == person1[i % person1.length]) {[m
+[32m+[m[32m                score[0]++;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            if (answers[i] == person2[i % person2.length]) {[m
+[32m+[m[32m                score[1]++;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            if (answers[i] == person3[i % person3.length]) {[m
+[32m+[m[32m                score[2]++;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        List<Integer> list = new ArrayList<>();[m
+[32m+[m[32m        int maxScore = Math.max(Math.max(score[0], score[1]), score[2]);[m
+[32m+[m
+[32m+[m[32m        if (maxScore == score[0]) {[m
+[32m+[m[32m            list.add(1);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        if (maxScore == score[1]) {[m
+[32m+[m[32m            list.add(2);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        if (maxScore == score[2]) {[m
+[32m+[m[32m            list.add(3);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        answer = new int[list.size()];[m
+[32m+[m
+[32m+[m[32m        for(int j = 0; j < answer.length; j++){[m
+[32m+[m[32m            answer[j] =  list.get(j);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/com/soap/programmers/level1/Strange_Char_12930.java b/src/com/soap/programmers/level1/Strange_Char_12930.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e575d89[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Strange_Char_12930.java[m
+[36m@@ -0,0 +1,43 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/12930[m
+[32m+[m
+[32m+[m[32mpublic class Strange_Char_12930 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        Strange_Char_Process process = new Strange_Char_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Strange_Char_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        String s = "try hello world";[m
+[32m+[m[32m        String result = solution(s);[m
+[32m+[m[32m        System.out.println("정답 : " + result);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String solution(String s) {[m
+[32m+[m[32m        String answer = "";[m
+[32m+[m[32m        String[] arr = s.split("");[m
+[32m+[m[32m        int cnt = 0;[m
+[32m+[m
+[32m+[m[32m        for (int i = 0; i < arr.length; i++) {[m
+[32m+[m[32m            if (arr[i].equals(" ")) {[m
+[32m+[m[32m                answer += " ";[m
+[32m+[m[32m                cnt = 0;[m
+[32m+[m[32m            } else {[m
+[32m+[m[32m                if (cnt % 2 == 0) { //짝수 -> 대문자[m
+[32m+[m[32m                    cnt++;[m
+[32m+[m[32m                    answer += arr[i].toUpperCase();[m
+[32m+[m[32m                } else { //홀수 -> 소문자[m
+[32m+[m[32m                    cnt++;[m
+[32m+[m[32m                    answer += arr[i].toLowerCase();[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/src/com/soap/programmers/level1/x_number_12954.java b/src/com/soap/programmers/level1/x_number_12954.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ac6ee0f[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/x_number_12954.java[m
+[36m@@ -0,0 +1,30 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/12954[m
+[32m+[m
+[32m+[m[32mpublic class x_number_12954 {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        x_number_Process process = new x_number_Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass x_number_Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        long[] result = solution(0, 3);[m
+[32m+[m[32m        System.out.println("정답 : " + result);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public long[] solution(long x, int n) {[m
+[32m+[m[32m        long[] answer = new long[n];[m
+[32m+[m[32m        long temp = x;[m
+[32m+[m[32m        for(int i = 0; i < n; i++){[m
+[32m+[m[32m            answer[i] = x += temp;[m
+[32m+[m[32m            x += temp;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return answer;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+
+[33mcommit 1917ba0a327d12a2ddea5f38cc0d27ef7c27f52f[m
+Author: jikimee64 <jikimee64@gmail.com>
+Date:   Mon Aug 24 16:02:17 2020 +0900
+
+    프로그래머스 / Level1 / 완주하지 못한 선수
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..84695dc[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,34 @@[m
+[32m+[m[32mHELP.md[m
+[32m+[m[32m.gradle[m
+[32m+[m[32mbuild/[m
+[32m+[m[32m!gradle/wrapper/gradle-wrapper.jar[m
+[32m+[m[32m!**/src/main/**/build/[m
+[32m+[m[32m!**/src/test/**/build/[m
+[32m+[m
+[32m+[m[32m### STS ###[m
+[32m+[m[32m.apt_generated[m
+[32m+[m[32m.classpath[m
+[32m+[m[32m.factorypath[m
+[32m+[m[32m.project[m
+[32m+[m[32m.settings[m
+[32m+[m[32m.springBeans[m
+[32m+[m[32m.sts4-cache[m
+[32m+[m
+[32m+[m[32m### IntelliJ IDEA ###[m
+[32m+[m[32m.idea[m
+[32m+[m[32m*.iws[m
+[32m+[m[32m*.iml[m
+[32m+[m[32m*.ipr[m
+[32m+[m[32mout/[m
+[32m+[m[32m!**/src/main/**/out/[m
+[32m+[m[32m!**/src/test/**/out/[m
+[32m+[m
+[32m+[m[32m### NetBeans ###[m
+[32m+[m[32m/nbproject/private/[m
+[32m+[m[32m/nbbuild/[m
+[32m+[m[32m/dist/[m
+[32m+[m[32m/nbdist/[m
+[32m+[m[32m/.nb-gradle/[m
+[32m+[m
+[32m+[m[32m### VS Code ###[m
+[32m+[m[32m.vscode/[m
+[1mdiff --git a/src/com/soap/programmers/level1/Player.java b/src/com/soap/programmers/level1/Player.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c83bbf1[m
+[1m--- /dev/null[m
+[1m+++ b/src/com/soap/programmers/level1/Player.java[m
+[36m@@ -0,0 +1,58 @@[m
+[32m+[m[32mpackage com.soap.programmers.level1;[m
+[32m+[m
+[32m+[m[32m//https://programmers.co.kr/learn/courses/30/lessons/42576[m
+[32m+[m
+[32m+[m[32mimport java.util.*;[m
+[32m+[m
+[32m+[m[32mpublic class Player {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        Process process = new Process();[m
+[32m+[m[32m        process.play();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass Process {[m
+[32m+[m[32m    public void play() {[m
+[32m+[m[32m        String[] participant = {"leo", "kiki", "eden"};[m
+[32m+[m[32m        String[] completion = {"eden", "kiki"};[m
+[32m+[m[32m        String answer = solution(participant, completion);[m
+[32m+[m[32m        System.out.println("정답 : " + answer);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //해시 사용[m
+[32m+[m[32m    public String solution(String[] participant, String[] completion) {[m
+[32m+[m[32m        HashMap<String,Integer> map = new HashMap();[m
+[32m+[m
+[32m+[m[32m        for(String arg : participant){[m
+[32m+[m[32m            map.put(arg, map.getOrDefault(arg, 0) + 1);[m
+[32m+[m[32m            System.out.println("participant : " + map.toString());[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for(String arg : completion) {[m
+[32m+[m[32m            map.put(arg, map.get(arg) - 1);[m
+[32m+[m[32m            System.out.println("completion : " + map.toString());[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        for(String key : map.keySet()) {[m
+[32m+[m[32m            if(map.get(key) != 0){[m
+[32m+[m[32m                return key;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    return null;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //해시사용X[m
+[32m+[m[32m//    public String solution(String[] participant, String[] completion) {[m
+[32m+[m[32m//        String answer = "";[m
+[32m+[m[32m//        Arrays.sort(participant);[m
+[32m+[m[32m//        Arrays.sort(completion);[m
+[32m+[m[32m//        int i = 0;[m
+[32m+[m[32m//        for(i = 0; i < completion.length; i++){[m
+[32m+[m[32m//            if(!(participant[i].equals(completion[i]))){[m
+[32m+[m[32m//                return participant[i];[m
+[32m+[m[32m//            }[m
+[32m+[m[32m//        }[m
+[32m+[m[32m//        return participant[i];[m
+[32m+[m[32m//    }[m
+[32m+[m
+[32m+[m[32m}[m
