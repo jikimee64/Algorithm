@@ -20,27 +20,41 @@ public class BJ_13458 {
         int b = in.nextInt(); //총감독관 최대 응시자수
         int c = in.nextInt(); //부감독관 최대 응시자수
 
-        int first = 0;
-        int second = 0;
+        long first = 0;
+        long second = 0;
 
         for (int i = 0; i < n; i++) {
-
             arr[i] -= b;
             first++;
-            if(arr[i] > 0){
-                if(arr[i] <= c){
-                    if(arr[i]/c > 0){
-                        second += arr[i]/c + 1;
-                    }else{
-                        second += arr[i]/c;s
-                    }
-                }else{
+
+            //내가 푼것
+          /*  if(arr[i] <= 0) {
+                continue;
+            }
+            if (arr[i] >= c) {
+                if (arr[i] % c != 0) {
+                    second += arr[i] / c + 1;
+                } else {
+                    second += arr[i] / c;
+                }
+                arr[i] -= (second * c);
+            } else {
+                second++;
+                continue;
+            }*/
+
+            //더깔끔
+            if (arr[i] > 0) {
+                second += arr[i] / c;
+                if (arr[i] % c != 0) {
                     second++;
                 }
             }
-
         }
+
         System.out.println(first + second);
 
     }
 }
+
+//참고 : https://bcp0109.tistory.com/10
