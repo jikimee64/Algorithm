@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class NaDongBin_숫자카드게임 {
+public class NDB_Part02__숫자카드게임 {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);

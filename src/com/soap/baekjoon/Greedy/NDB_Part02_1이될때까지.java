@@ -3,7 +3,7 @@ package com.soap.baekjoon.Greedy;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class NaDongBin_1이될때까지 {
+public class NDB_Part02_1이될때까지 {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
