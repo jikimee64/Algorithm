@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 //답 봄
-public class NDB_Part03_모험가길드 {
+public class NDB_Part03_01_모험가길드 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 

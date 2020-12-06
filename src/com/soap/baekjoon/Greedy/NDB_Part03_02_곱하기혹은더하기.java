@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 //답봄
-public class NDB_Part03_곱하기혹은더하기 {
+public class NDB_Part03_02_곱하기혹은더하기 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String str = in.next();

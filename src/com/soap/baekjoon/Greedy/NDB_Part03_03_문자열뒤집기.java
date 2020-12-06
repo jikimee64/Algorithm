@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //정답봄
 //이해안됨
-public class NDB_Part03_문자열뒤집기 {
+public class NDB_Part03_03_문자열뒤집기 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String str = in.next();

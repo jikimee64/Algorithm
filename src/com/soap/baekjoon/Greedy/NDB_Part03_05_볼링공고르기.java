@@ -1,9 +1,8 @@
 package com.soap.baekjoon.Greedy;
 
-import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
 import java.util.*;
 
-public class NDB_Part03_볼링공고르기 {
+public class NDB_Part03_05_볼링공고르기 {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
