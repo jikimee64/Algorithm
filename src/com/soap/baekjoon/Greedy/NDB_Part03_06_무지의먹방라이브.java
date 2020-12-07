@@ -6,6 +6,7 @@ public class NDB_Part03_06_무지의먹방라이브 {
         System.out.println(answer);
     }
 
+    //포기
     public static int solution(int[] food_times, long k) {
         int answer = 0;
         int count = 0;
