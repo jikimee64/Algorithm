@@ -1,11 +1,33 @@
 package com.soap.ndb.implementation;
 
+/**
+ * 문자열에서 같은 값이 연속해서 나타나는 것을 그 문자의 개수와
+ * 반복되는 값으로 표현하여 더 짧은 문자열로 줄여서 표현
+ *
+ * Ex)
+ * 1) ababcdcdababcdcd
+ * - 1개 단위로 자르기
+ * => a | b | a | b | c ....
+ * - 2개 단위로 자르기
+ * => ab | ab | cd | cd | ab | ab | cd | cd
+ * =>   2ab       2cd       2ab       2cd
+ * - 8개 단위로 자르기
+ * => ababcdcd | ababcdcd
+ *         2ababcdcd
+ *
+ * 1개 이상 단위로 문자열을 잘라 압축하여 표현한 문자열 중 가장 짧은 것의 길이를 return
+ *
+ * 제한 사항
+ * - s의 길이는 1 이상 1,000 이하
+ * - s는 알파벳 소문자로만 이루어져 있음
+ */
+
 //참고 : https://lkhlkh23.tistory.com/153
 //https://woongsin94.tistory.com/419
 //https://regularmember.tistory.com/154 :  result += (processHit(hit) + next); 해결
 public class NDB_Part03_09_문자열압축 {
     public static void main(String[] args) {
-        int answer = solution("aaaaa");
+        int answer = solution("ababcdcdababcdcd");
         System.out.println(answer);
     }
 
@@ -36,6 +58,7 @@ public class NDB_Part03_09_문자열압축 {
             /**
              * i개로 나누어 떨어지지 않고 남은 부분은 마지막에 추가적으로 붙여줌.
              */
+            //System.out.println(i + "단위로 자른 결과 : " + result + "크기 : " + result.length());
             result += (processHit(hit) + next);
             answer = Math.min(answer, result.length());
         }

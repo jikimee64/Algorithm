@@ -4,7 +4,7 @@ package com.soap.programmers.level1;
 
 import java.util.*;
 
-public class TwoNumber_68664 {
+class TwoNumber_68664 {
     public static void main(String[] args) {
         TwoNumber_Process process = new TwoNumber_Process();
         process.play();
