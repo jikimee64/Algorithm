@@ -18,8 +18,6 @@ public class BJ_1193 {
          * a(0) = 1
          * a(n) = a(n-1)+ n-1
          */
-
-        //
         int stage = 2; // 2단계부터 시작
         int startNumber = 2;
         int startPlus = 2;
