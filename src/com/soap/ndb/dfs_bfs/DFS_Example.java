@@ -27,7 +27,6 @@ public class DFS_Example {
             graph.add(new ArrayList<Integer>());
         }
 
-
         // 노드 1에 연결된 노드 정보 저장
         graph.get(1).add(2);
         graph.get(1).add(3);
