@@ -8,8 +8,13 @@ import java.util.List;
 
 public class NDB_Part03_경쟁적전염 {
 
+    /**
+     * n, k : 배열 행과 열 크기
+     * s : 초
+     * x, y : (x,y)에 존재하는 바이러스 종류
+     */
     public static int n, k, s, x, y;
-    public static int[][] map = new int[4][4];
+    public static int[][] map;
     public static List<Node> list = new ArrayList<>(); //Node 클래스를 담을 리스트
 
     //이동할 네가지 방향 정의 (상, 하, 좌, 우)
