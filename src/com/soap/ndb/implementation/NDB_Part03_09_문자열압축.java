@@ -22,6 +22,7 @@ package com.soap.ndb.implementation;
  * - s는 알파벳 소문자로만 이루어져 있음
  */
 
+//https://programmers.co.kr/learn/courses/30/lessons/60057
 //참고 : https://lkhlkh23.tistory.com/153
 //https://woongsin94.tistory.com/419
 //https://regularmember.tistory.com/154 :  result += (processHit(hit) + next); 해결

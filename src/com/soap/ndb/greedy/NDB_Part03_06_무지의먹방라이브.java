@@ -1,5 +1,6 @@
 package com.soap.ndb.greedy;
 
+//https://programmers.co.kr/learn/courses/30/lessons/42891
 public class NDB_Part03_06_무지의먹방라이브 {
     public static void main(String[] args) {
         int answer = solution(new int[]{3, 1, 2}, 5);
