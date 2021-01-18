@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  * 원하는 조건을 만족하는 가장 알맞은 값을 찾는 문제에 주로 사용
  * 주로 재귀보다 반복문이 간결
  */
-qq
+
 public class NDB_Part02_떡볶이떡만들기 {
 
     public static List<Integer> rice = new ArrayList<>();
