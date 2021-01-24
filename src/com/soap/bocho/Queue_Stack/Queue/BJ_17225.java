@@ -1,4 +1,4 @@
-package com.soap.bocho.Queue_Stack.Stack;
+package com.soap.bocho.Queue_Stack.Queue;
 
 import java.io.BufferedReader;
 import java.io.IOException;
