@@ -20,7 +20,6 @@ public class BJ_1158 {
 
         Queue<Integer> q = new LinkedList();
 
-
         for (int i = 1; i <= N; i++) {
             q.add(i);
         }
