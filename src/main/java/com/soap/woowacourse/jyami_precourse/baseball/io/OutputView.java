@@ -1,6 +1,6 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.io;
+package com.soap.woowacourse.jyami_precourse.baseball.io;
 
-import com.soap.woowacourse.jyami_precourse.oneweek.domain.baseBalls.QuestionBaseBalls;
+import com.soap.woowacourse.jyami_precourse.baseball.domain.baseBalls.QuestionBaseBalls;
 
 /**
  * 게임시 인자로 받은 값의 출력을 해야할 때의 함수들을 저장한다.

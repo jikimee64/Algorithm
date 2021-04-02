@@ -1,4 +1,4 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.io;
+package com.soap.woowacourse.jyami_precourse.baseball.io;
 
 import java.io.InputStream;
 import java.util.Scanner;

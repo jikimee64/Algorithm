@@ -1,6 +1,6 @@
-package com.soap.woowacourse.jyami_precourse.oneweek;
+package com.soap.woowacourse.jyami_precourse.baseball;
 
-import com.soap.woowacourse.jyami_precourse.oneweek.gameRunnber.GameMachine;
+import com.soap.woowacourse.jyami_precourse.baseball.gameRunnber.GameMachine;
 
 public class Main {
     public static void main(String[] args) {

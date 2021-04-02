@@ -1,7 +1,7 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.gameRunnber;
+package com.soap.woowacourse.jyami_precourse.baseball.gameRunnber;
 
-import com.soap.woowacourse.jyami_precourse.oneweek.generator.RandomGameNumbersGenerator;
-import com.soap.woowacourse.jyami_precourse.oneweek.io.InputView;
+import com.soap.woowacourse.jyami_precourse.baseball.generator.RandomGameNumbersGenerator;
+import com.soap.woowacourse.jyami_precourse.baseball.io.InputView;
 
 /**
  * 게임을 실행 할 수 있는 함수가 담긴 클래스 여러개의 숫자야구게임(BaseBallGame)을 실행 할 수 있다.

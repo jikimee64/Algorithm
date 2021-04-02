@@ -1,4 +1,4 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.parsing;
+package com.soap.woowacourse.jyami_precourse.baseball.parsing;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,8 +1,6 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.domain;
+package com.soap.woowacourse.jyami_precourse.baseball.domain;
 
 import lombok.Getter;
-
-import java.util.Objects;
 
 /**
  * 야구볼의 숫자는 무조껀 1~9 사이의 수이어야 하기 때문에,

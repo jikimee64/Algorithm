@@ -1,6 +1,6 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.domain.baseBalls;
+package com.soap.woowacourse.jyami_precourse.baseball.domain.baseBalls;
 
-import com.soap.woowacourse.jyami_precourse.oneweek.generator.GameNumbersGenerator;
+import com.soap.woowacourse.jyami_precourse.baseball.generator.GameNumbersGenerator;
 
 import java.util.List;
 
