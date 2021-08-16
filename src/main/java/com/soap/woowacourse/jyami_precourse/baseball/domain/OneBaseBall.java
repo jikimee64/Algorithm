@@ -1,6 +1,5 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.domain;
+package com.soap.woowacourse.jyami_precourse.baseball.domain;
 
-import com.soap.woowacourse.jyami_precourse.oneweek.domain.baseBalls.BaseBalls;
 import lombok.Getter;
 
 /**

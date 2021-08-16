@@ -1,11 +1,11 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.gameRunnber;
+package com.soap.woowacourse.jyami_precourse.baseball.gameRunnber;
 
-import com.soap.woowacourse.jyami_precourse.oneweek.domain.baseBalls.AnswerBaseBalls;
-import com.soap.woowacourse.jyami_precourse.oneweek.domain.baseBalls.QuestionBaseBalls;
-import com.soap.woowacourse.jyami_precourse.oneweek.generator.GameNumbersGenerator;
-import com.soap.woowacourse.jyami_precourse.oneweek.io.InputView;
-import com.soap.woowacourse.jyami_precourse.oneweek.io.OutputView;
-import com.soap.woowacourse.jyami_precourse.oneweek.parsing.NumberParsing;
+import com.soap.woowacourse.jyami_precourse.baseball.domain.baseBalls.AnswerBaseBalls;
+import com.soap.woowacourse.jyami_precourse.baseball.domain.baseBalls.QuestionBaseBalls;
+import com.soap.woowacourse.jyami_precourse.baseball.generator.GameNumbersGenerator;
+import com.soap.woowacourse.jyami_precourse.baseball.io.InputView;
+import com.soap.woowacourse.jyami_precourse.baseball.io.OutputView;
+import com.soap.woowacourse.jyami_precourse.baseball.parsing.NumberParsing;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.generator;
+package com.soap.woowacourse.jyami_precourse.baseball.generator;
 
-import static com.soap.woowacourse.jyami_precourse.oneweek.domain.BaseBallNumber.*;
-import static com.soap.woowacourse.jyami_precourse.oneweek.gameRunnber.BaseBallGame.*;
+import static com.soap.woowacourse.jyami_precourse.baseball.domain.BaseBallNumber.*;
+import static com.soap.woowacourse.jyami_precourse.baseball.gameRunnber.BaseBallGame.*;
 
 import java.util.ArrayList;
 import java.util.Collections;

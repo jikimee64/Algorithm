@@ -1,4 +1,4 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.generator;
+package com.soap.woowacourse.jyami_precourse.baseball.generator;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.soap.woowacourse.jyami_precourse.oneweek.domain.baseBalls;
+package com.soap.woowacourse.jyami_precourse.baseball.domain.baseBalls;
 
-import com.soap.woowacourse.jyami_precourse.oneweek.domain.OneBaseBall;
+import com.soap.woowacourse.jyami_precourse.baseball.domain.OneBaseBall;
 import lombok.Getter;
 
 import java.util.ArrayList;
