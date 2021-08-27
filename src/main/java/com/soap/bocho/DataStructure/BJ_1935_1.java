@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 //https://www.acmicpc.net/problem/1935
-public class BJ_1935 {
+public class BJ_1935_1 {
 
     private static List<String> operators = Arrays.asList("+", "-", "*", "/");
     private static List<String> alphabet = Arrays.asList("A", "B", "C", "D", "E", "F", "G",
@@ -28,7 +28,6 @@ public class BJ_1935 {
             StringTokenizer st3 = new StringTokenizer(br.readLine());
             inputNumbers.add(Integer.parseInt(st3.nextToken()));
         }
-
 
         List<String> alphabet = inputs.stream()
                 .filter(input -> !operators.contains(input))
@@ -66,8 +65,14 @@ public class BJ_1935 {
                 }
             }
         }
-        Double answer = joined.pop();
-        System.out.println(answer);
-        System.out.println(Math.round((answer) * 100) / 100.0);
+
+        Double pop = joined.pop();
+        String[] split2 = pop.toString().split("\\.");
+        if(split2.length >= 3){
+            System.out.println(Math.round(pop * 100) / 100.0);
+        }else{
+            System.out.format("%.2f", pop);
+        }
+
     }
 }
