@@ -28,7 +28,7 @@ public class BJ_10799_2 {
                 stack.pop();
                 /**
                  * 이렇게 하면 안됨
-                 * String s = stack.peek();
+                 * String s = stack.peek(); //스택에서 pop()으로 인해 변화가 있고, ")"의 바로전 문자를 비교해야 하므로 인덱스를 활용
                  * if("(".equals(s)){
                  *  stack.pop();
                  *  ...
