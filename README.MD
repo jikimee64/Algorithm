@@ -10,6 +10,8 @@
   - `stack`
   - [ ] [BaekJoon 1935](https://www.acmicpc.net/problem/1935)
   - [ ] [BaekJoon 10799](https://www.acmicpc.net/problem/10799)
+  - `queue`
+  - [ ] [BaekJoon 2346](https://www.acmicpc.net/problem/2346)
 
 ---
 - **프로그래머스**  
