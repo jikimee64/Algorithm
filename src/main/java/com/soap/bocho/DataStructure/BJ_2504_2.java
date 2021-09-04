@@ -7,7 +7,8 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 //https://www.acmicpc.net/problem/2504
-//틀림
+//https://loosie.tistory.com/349?category=982577 : 풀이
+//https://soobarkbar.tistory.com/151 : 풀이
 public class BJ_2504_2 {
     public static void main(String[] args) throws IOException {
 
@@ -17,44 +18,48 @@ public class BJ_2504_2 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         String[] split = st.nextToken().split("");
         int answer = 0;
-
         int temp = 1; //중간값
-        name : for (int i = 0; i < split.length; i++) {
+        abc : for (int i = 0; i < split.length; i++) {
             String text = split[i];
 
-            switch (text){
-                case "(" :
+            switch (text) {
+                case "(":
                     stack.push(text);
                     temp *= 2;
                     break;
-                case "[" :
+                case "[":
                     stack.push(text);
                     temp *= 3;
                     break;
-                case ")" :
-                    if(stack.isEmpty() || !stack.peek().equals("(")){
+                case ")":
+                    if (stack.isEmpty() || !stack.peek().equals("(")) {
                         answer = 0;
-                        break name;
+                        break abc;
                     }
-                    if(split[i - 1].equals("(")){
+                    if (split[i - 1].equals("(")) {
                         answer += temp;
                     }
+                    stack.pop();
                     temp /= 2;
-                    stack.pop();
                     break;
-                case "]" :
-                    if(stack.isEmpty() || !stack.peek().equals("[")){
+                case "]":
+                    if (stack.isEmpty() || !stack.peek().equals("[")) {
                         answer = 0;
-                        break name;
+                        break abc;
                     }
-                    if(split[i - 1].equals("[")){
+                    if (split[i - 1].equals("[")) {
                         answer += temp;
                     }
-                    temp /= 3;
                     stack.pop();
+                    temp /= 3;
                     break;
             }
         }
+
+        if (!stack.isEmpty()) {
+            answer = 0;
+        }
         System.out.println(answer);
+
     }
 }
