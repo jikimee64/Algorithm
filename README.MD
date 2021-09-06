@@ -12,6 +12,7 @@
   - [ ] [BaekJoon 10799](https://www.acmicpc.net/problem/10799)
   - [ ] [BaekJoon 2504](https://www.acmicpc.net/problem/2504)
   - [ ] [BaekJoon 2800](https://www.acmicpc.net/problem/2800)
+  - [ ] [BaekJoon 2493](https://www.acmicpc.net/problem/2800)
   - `queue`
   - [ ] [BaekJoon 2346](https://www.acmicpc.net/problem/2346)
 
