@@ -20,7 +20,6 @@ public class BJ_2493_2 {
         int top = -1;
 
         StringTokenizer st2 = new StringTokenizer(br.readLine(), " ");
-        int max = 0;
         for (int i = 1; i <= N; i++) {
             int num = Integer.parseInt(st2.nextToken());
 
