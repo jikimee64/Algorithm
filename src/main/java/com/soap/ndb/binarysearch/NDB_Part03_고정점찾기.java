@@ -15,26 +15,25 @@ public class NDB_Part03_고정점찾기 {
         int N = Integer.parseInt(br.readLine());
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             list.add(Integer.valueOf(st.nextToken()));
         }
 
         Collections.sort(list);
 
         int start = 0;
-        int end = list.size()-1;
+        int end = list.size() - 1;
         int result = -1;
 
-        while(start <= end){
+        while (start <= end) {
             int mid = (start + end) / 2;
 
-            if(list.get(mid) == mid){
+            if (list.get(mid) == mid) {
                 result = mid;
                 break;
-            }
-            else if(list.get(mid) < mid){ //중간값이 인덱스(mid)보다 작다면 중간값 이후를 탐색
+            } else if (list.get(mid) < mid) { //중간값이 인덱스(mid)보다 작다면 중간값 이후를 탐색
                 start = mid + 1;
-            }else { //중간값이 인덱스(mid)보다 크다면 중간값 이전을 탐색
+            } else { //중간값이 인덱스(mid)보다 크다면 중간값 이전을 탐색
                 end = mid - 1;
             }
         }

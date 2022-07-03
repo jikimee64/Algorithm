@@ -27,16 +27,16 @@ public class NDB_Part03_퇴사 {
         }
 
         //뒤쪽 날짜부터 거꾸로 확인하는 방식
-        int end = list.size()-1;
+        int end = list.size() - 1;
         for (int i = end; i >= 1; i--) {
             int t = list.get(i).getT();
             int p = list.get(i).getP();
 
             int next = i + t;
-            if (next > N + 1 ) { //상담 불가
-                d[i] = d[i+1];
-            }else{ //상담시간이 1일인 경우 else문을 탐
-                d[i] = Math.max(d[i+1], d[next] + p);
+            if (next > N + 1) { //상담 불가
+                d[i] = d[i + 1];
+            } else { //상담시간이 1일인 경우 else문을 탐
+                d[i] = Math.max(d[i + 1], d[next] + p);
             }
         }
 

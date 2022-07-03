@@ -25,7 +25,7 @@ public class NDB_Part03_01_모험가길드 {
         int count = 0; //현재 그룹에 포함된 모험자 수
         for (int i = 0; i < arr.length; i++) {
             count += 1;
-            if(count >= arr[i]){  // 현재 그룹에 포함된 모험가의 수가 현재의 공포도 이상이라면, 그룹 결성
+            if (count >= arr[i]) {  // 현재 그룹에 포함된 모험가의 수가 현재의 공포도 이상이라면, 그룹 결성
                 groupCount += 1; // 총 그룹의 수 증가시키기
                 count = 0;  // 현재 그룹에 포함된 모험가의 수 초기화
             }

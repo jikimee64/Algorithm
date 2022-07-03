@@ -33,7 +33,7 @@ public class NDB_Part02__숫자카드게임 {
         //가장 작은 수 찾기
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < m; j++) {
-                answer = Math.min(arr[i][j-1], arr[i][j]);
+                answer = Math.min(arr[i][j - 1], arr[i][j]);
             }
         }
 
@@ -51,7 +51,6 @@ public class NDB_Part02__숫자카드게임 {
         }
 
         System.out.println(answer);
-
 
 
     }

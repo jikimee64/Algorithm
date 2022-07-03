@@ -1,10 +1,11 @@
 package main.java.com.soap.ndb.greedy;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * 생각할 조건 - 서로 무게가 다른 볼링공을 고르려고 한다.
- *            - 볼링공의 무게가 1부터 10까지만 존재 한다.
+ * - 볼링공의 무게가 1부터 10까지만 존재 한다.
  */
 public class NDB_Part03_05_볼링공고르기 {
     public static void main(String[] args) {
@@ -92,9 +93,9 @@ public class NDB_Part03_05_볼링공고르기 {
         for (int i = 1; i <= m; i++) {
             //n은 볼링공의 개수
             n -= ballList[i]; // 무게가 i인 볼링공의 개수(A가 선택할 수 있는 개수) 제외(
-                              // 다시말하면 A가 선택하는 경우의수 제외
+            // 다시말하면 A가 선택하는 경우의수 제외
             count += ballList[i] * n; // (A가 선택하는 경우의 수) * (B가 선택하는 경우의 수)
-                                      // 이전에 조합했던 경우의 수를 제외시켜야 되므로 n은 누적해서 빼줌
+            // 이전에 조합했던 경우의 수를 제외시켜야 되므로 n은 누적해서 빼줌
         }
         System.out.println(count);
 

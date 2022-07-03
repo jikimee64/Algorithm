@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class Fruit implements Comparable<Fruit>{
+class Fruit implements Comparable<Fruit> {
     private String name;
     private int score;
 

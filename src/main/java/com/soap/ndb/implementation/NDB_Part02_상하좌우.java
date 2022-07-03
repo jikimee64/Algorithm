@@ -1,6 +1,8 @@
 package main.java.com.soap.ndb.implementation;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class NDB_Part02_상하좌우 {
@@ -18,7 +20,7 @@ public class NDB_Part02_상하좌우 {
         while (st.hasMoreTokens()) {
             switch (st.nextToken()) {
                 case "R":
-                    if (y < N-1) {
+                    if (y < N - 1) {
                         y++;
                     }
                     break;
@@ -33,7 +35,7 @@ public class NDB_Part02_상하좌우 {
                     }
                     break;
                 case "D":
-                    if (x < N-1) {
+                    if (x < N - 1) {
                         x++;
                     }
                     break;

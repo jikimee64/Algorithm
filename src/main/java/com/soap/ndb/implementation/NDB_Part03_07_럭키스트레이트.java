@@ -14,17 +14,17 @@ public class NDB_Part03_07_럭키스트레이트 {
         String[] arr = N.split("");
 
         int a = arr.length;
-        int mid = a/2;
+        int mid = a / 2;
 
         int first = 0;
         int second = 0;
 
         int index = 0;
-        while(index < arr.length){
-            if(index >= mid){
+        while (index < arr.length) {
+            if (index >= mid) {
                 second += Integer.parseInt(arr[index]);
                 index++;
-            }else{
+            } else {
                 first += Integer.parseInt(arr[index]);
                 index++;
             }

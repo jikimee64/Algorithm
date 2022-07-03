@@ -48,7 +48,7 @@ public class NDB_Part02_1이될때까지_2 {
                 break;
             }
             //k로 나누기
-            result +=1;
+            result += 1;
             n = n / k;
         }
         result += (n - 1);

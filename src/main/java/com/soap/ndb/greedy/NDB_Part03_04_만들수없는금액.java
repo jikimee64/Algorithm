@@ -18,7 +18,7 @@ public class NDB_Part03_04_만들수없는금액 {
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
         int count = 0;
-        while(st.hasMoreTokens()){
+        while (st.hasMoreTokens()) {
             arr[count] = Integer.parseInt(st.nextToken());
             count++;
         }
@@ -46,10 +46,10 @@ public class NDB_Part03_04_만들수없는금액 {
          *   1) 3 <= 1 //NO, 1이 정답
          */
         int price = 1;
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] <= price){
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] <= price) {
                 price += arr[i];
-            }else{
+            } else {
                 break;
             }
         }

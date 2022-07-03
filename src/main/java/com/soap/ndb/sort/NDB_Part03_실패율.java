@@ -61,15 +61,14 @@ class Stage implements Comparable<Stage> {
     private int num; // 고유번호
     private double failure; // 실패율
 
-    public int getNum() {
-        return num;
-    }
-
     public Stage(int num, double failure) {
         this.num = num;
         this.failure = failure;
     }
 
+    public int getNum() {
+        return num;
+    }
 
     @Override
     public int compareTo(Stage o) {

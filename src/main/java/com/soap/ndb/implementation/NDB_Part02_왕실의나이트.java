@@ -8,35 +8,50 @@ public class NDB_Part02_왕실의나이트 {
         int num = 12345;
 
 
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         String N = br.readLine();
         //int[][] arr = new int[8][8];
-        int[][] arr = new int[][]{ {2, 1}, {2, -1}, {-2, 1}, {-2 , -1}, {1, 2}, {-1, 2}, {1, -2}, {-1, -2} };
+        int[][] arr = new int[][]{{2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {-1, 2}, {1, -2}, {-1, -2}};
         int result = 0;
 
-        int x = Integer.parseInt(N.split("")[1])-1;
+        int x = Integer.parseInt(N.split("")[1]) - 1;
         String sen = N.split("")[0];
         int y = 0;
 
         //이것보다 나동빈 답방법이 좋은듯
-        switch (sen){
-            case "a": y = 0;break;
-            case "b": y = 1;break;
-            case "c": y = 2;break;
-            case "d": y = 3;break;
-            case "e": y = 4;break;
-            case "f": y = 5;break;
-            case "g": y = 6;break;
-            case "h": y = 7;break;
+        switch (sen) {
+            case "a":
+                y = 0;
+                break;
+            case "b":
+                y = 1;
+                break;
+            case "c":
+                y = 2;
+                break;
+            case "d":
+                y = 3;
+                break;
+            case "e":
+                y = 4;
+                break;
+            case "f":
+                y = 5;
+                break;
+            case "g":
+                y = 6;
+                break;
+            case "h":
+                y = 7;
+                break;
         }
 
-        for(int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             x += arr[i][1];
             y += arr[i][0];
-            if(x >= 0 && x <= 7 && y >= 0 && y <= 7){
-               result++;
+            if (x >= 0 && x <= 7 && y >= 0 && y <= 7) {
+                result++;
             }
             x -= arr[i][1];
             y -= arr[i][0];

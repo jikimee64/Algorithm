@@ -10,11 +10,11 @@ public class CountSort {
         //모든 범위를 포함하는 배열 선언(모든 값은 0으로 초기화)
         int[] cnt = new int[MAX_VALUE + 1];
 
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             cnt[arr[i]] += 1; //각 데이터에 해당하는 인덱스의 값 증가
         }
-        for(int i = 0; i <= MAX_VALUE; i++){ //배열에 기록된 정렬 정보 확인
-            for(int j = 0; j < cnt[i]; j++){
+        for (int i = 0; i <= MAX_VALUE; i++) { //배열에 기록된 정렬 정보 확인
+            for (int j = 0; j < cnt[i]; j++) {
                 System.out.print(i + " "); //띄어쓰기를 기준으로 등장한 횟수만큼 인덱스 출력
             }
         }

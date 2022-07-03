@@ -31,7 +31,7 @@ public class NDB_Part03_09_문자열압축_주석 {
 
     public static int solution(String s) {
 
-        if(s.length() == 1) return 1;
+        if (s.length() == 1) return 1;
         int answer = 1001; //최솟값을 구하기 위한 변수, s는 1000이하 이기 때문에 1001로 초기화
 
         //문자열 길이의 반이상 자르면 좌항, 우항의 개수가 맞지 않기 때문에 의미가 없음

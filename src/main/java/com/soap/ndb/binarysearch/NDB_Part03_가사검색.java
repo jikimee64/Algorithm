@@ -1,9 +1,7 @@
 package main.java.com.soap.ndb.binarysearch;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 
 //https://programmers.co.kr/learn/courses/30/lessons/60060
 public class NDB_Part03_가사검색 {

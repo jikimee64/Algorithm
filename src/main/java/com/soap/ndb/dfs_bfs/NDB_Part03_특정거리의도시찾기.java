@@ -1,7 +1,5 @@
 package main.java.com.soap.ndb.dfs_bfs;
 
-import org.w3c.dom.Node;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -57,18 +55,18 @@ public class NDB_Part03_특정거리의도시찾기 {
 
         bfs(X);
 
-        ArrayList<Integer> list =  new ArrayList<>();
-        for(int i = 0 ; i < distance.length; i++){
-            if(distance[i] == K){
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < distance.length; i++) {
+            if (distance[i] == K) {
                 list.add(i);
             }
         }
 
         Collections.sort(list);
 
-        if(list.size() == 0){
+        if (list.size() == 0) {
             System.out.println(-1);
-        }else{
+        } else {
             list.stream().forEach(x -> System.out.println(x));
         }
 

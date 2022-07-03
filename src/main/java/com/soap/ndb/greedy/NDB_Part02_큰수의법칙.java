@@ -19,7 +19,7 @@ public class NDB_Part02_큰수의법칙 {
         int numCount = 0;
         int answer = 0;
 
-        while(st.hasMoreTokens()){
+        while (st.hasMoreTokens()) {
             arr[arrCount] = Integer.parseInt(st.nextToken());
             arrCount++;
         }
@@ -28,25 +28,26 @@ public class NDB_Part02_큰수의법칙 {
         int k = arr[2];
 
         num = new int[n];
-        while(st2.hasMoreTokens()) {
+        while (st2.hasMoreTokens()) {
             num[numCount] = Integer.parseInt(st2.nextToken());
             numCount++;
         }
 
         Arrays.sort(num);
 
-        int first = num[num.length-1];
-        int second = num[num.length-2];
+        int first = num[num.length - 1];
+        int second = num[num.length - 2];
 
-        outer : while(true){
-            for(int i=0; i<k; i++){
-                if(m == 0){
+        outer:
+        while (true) {
+            for (int i = 0; i < k; i++) {
+                if (m == 0) {
                     break outer;
                 }
                 answer += first;
                 m -= 1;
             }
-            if(m == 0){
+            if (m == 0) {
                 break;
             }
             answer += second;

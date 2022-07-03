@@ -18,7 +18,7 @@ public class NDB_Part03_금광 {
             int m = Integer.parseInt(st.nextToken());
 
             int[][] arr = new int[n][m];
-            int [][]d = new int[n][m];
+            int[][] d = new int[n][m];
 
             StringTokenizer st2 = new StringTokenizer(br.readLine());
             for (int j = 0; j < n; j++) {

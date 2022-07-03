@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class NDB_Part02_1로만들기 {
 
     //d에 n을 1로 만들기 위한 최소 개수를 저장
-   static int d[] = new int[30001];
+    static int d[] = new int[30001];
 
     public static void main(String[] args) {
 

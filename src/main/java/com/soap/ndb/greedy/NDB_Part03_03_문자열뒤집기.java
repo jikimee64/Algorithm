@@ -38,11 +38,11 @@ public class NDB_Part03_03_문자열뒤집기 {
          */
 
         //두번째 원소부터 모든 원소를 확인
-        for(int i = 0; i < str.length()-1; i++){
-            if(str.charAt(i) != str.charAt(i+1)){
-                if(str.charAt(i+1) == '1'){ // 0으로 가다가 다음 수에서 1로 바뀌는 경우
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) != str.charAt(i + 1)) {
+                if (str.charAt(i + 1) == '1') { // 0으로 가다가 다음 수에서 1로 바뀌는 경우
                     count0 += 1;
-                }else{ // 1로 가다가 다음 수에서 0으로 바뀌는 경우
+                } else { // 1로 가다가 다음 수에서 0으로 바뀌는 경우
                     count1 += 1;
                 }
             }

@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
 
 public class NDB_Part02_큰수의법칙_2 {
 
@@ -27,24 +25,24 @@ public class NDB_Part02_큰수의법칙_2 {
     }
 
     //M이 100억 이상이라면 시간초과
-    public static void solution(){
+    public static void solution() {
         int sum = 0;
 
         Arrays.sort(data);
         int firstMax = data[data.length - 1];
         int twoMax = data[data.length - 2];
 
-        for(int i = 1; i <= m; i++){
-            if(i % k == 0){
+        for (int i = 1; i <= m; i++) {
+            if (i % k == 0) {
                 sum += twoMax;
-            }else{
+            } else {
                 sum += firstMax;
             }
         }
         System.out.println(sum);
     }
 
-    public static void solution2(int m, int k){
+    public static void solution2(int m, int k) {
         int sum = 0;
 
         Arrays.sort(data);
@@ -60,6 +58,6 @@ public class NDB_Part02_큰수의법칙_2 {
         result += (m - count) * twoMax; // 두 번째로 큰 수 더하기
 
         System.out.println(result);
-        
+
     }
 }

@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 public class NDB_Part03_06_무지의먹방라이브 {
 
     public static void main(String[] args) {
-        long answer = solution(new int[]{4,2,3,6,7,1,5,8}, 16);
+        long answer = solution(new int[]{4, 2, 3, 6, 7, 1, 5, 8}, 16);
         System.out.println(answer);
     }
 
@@ -46,13 +46,13 @@ public class NDB_Part03_06_무지의먹방라이브 {
             return answer;
         }
         int i = 0;
-      /**
-       * (k 초가 되기 까지의 남은 시간) % 다먹지 않은 음식의 종류 수(큐의 사이즈)
-       * (3,1,2) / 5일 때는 K = 5가되어 k - K = 0이 된다.
-       * (2,2,2) / 4일 때는 K = 0이되어 k - K = 4가된다.
-       * (4,2,3,6,7,1,5,8) / 16일 때는 K = 15가되어 k - K = 1이된다.
-       */
-      long time = (k - K) % pq.size() + 1;
+        /**
+         * (k 초가 되기 까지의 남은 시간) % 다먹지 않은 음식의 종류 수(큐의 사이즈)
+         * (3,1,2) / 5일 때는 K = 5가되어 k - K = 0이 된다.
+         * (2,2,2) / 4일 때는 K = 0이되어 k - K = 4가된다.
+         * (4,2,3,6,7,1,5,8) / 16일 때는 K = 15가되어 k - K = 1이된다.
+         */
+        long time = (k - K) % pq.size() + 1;
         while (time != 0) {
             if (empty[i] == 0) { //1단계부터 조사해서 다먹은 음식을 찾으면(=0) time--;
                 time--;

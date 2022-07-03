@@ -1,6 +1,5 @@
 package main.java.com.soap.ndb.greedy;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**

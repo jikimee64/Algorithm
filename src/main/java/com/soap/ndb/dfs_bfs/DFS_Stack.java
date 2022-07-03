@@ -25,7 +25,7 @@ public class DFS_Stack {
          * -1 -1
          */
         System.out.println("간선을 입력하시오(종료 -1, -1):");
-        
+
         while (true) {
             a = in.nextInt();
             b = in.nextInt();
@@ -38,10 +38,10 @@ public class DFS_Stack {
 }
 
 class Dfs {
-    int start;
-    int size;
     public static int[] visited;
     public static int[][] map;
+    int start;
+    int size;
 
     Dfs(int a, int b, int[][] map) {
         start = a;

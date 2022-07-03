@@ -15,11 +15,11 @@ public class NDB_Part02__숫자카드게임_2 {
         int m = size[1]; //열
 
         List<Integer> list = new ArrayList<>();
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             int min = Integer.MAX_VALUE;
             int[] row = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-            for(int j = 0; j < m; j++){
-                if(min > row[j]){
+            for (int j = 0; j < m; j++) {
+                if (min > row[j]) {
                     min = row[j];
                 }
             }

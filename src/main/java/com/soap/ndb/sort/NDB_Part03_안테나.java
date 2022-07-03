@@ -22,10 +22,10 @@ public class NDB_Part03_안테나 {
 
         Collections.sort(list); //오름차순 정렬
 
-        if(n % 2 == 1){
-            System.out.println(list.get(n/2));
-        }else{
-            System.out.println(list.get(n/2-1));
+        if (n % 2 == 1) {
+            System.out.println(list.get(n / 2));
+        } else {
+            System.out.println(list.get(n / 2 - 1));
         }
 
     }

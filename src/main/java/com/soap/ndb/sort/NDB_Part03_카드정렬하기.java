@@ -3,7 +3,7 @@ package main.java.com.soap.ndb.sort;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.PriorityQueue;
 
 //https://www.acmicpc.net/problem/1715
 public class NDB_Part03_카드정렬하기 {
