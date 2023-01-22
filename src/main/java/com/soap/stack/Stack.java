@@ -28,6 +28,9 @@ public class Stack<T> {
     }
 
     T peek(){
+        if(top == null){
+            throw new StackEmptyException();
+        }
         return top.getItem();
     }
 
