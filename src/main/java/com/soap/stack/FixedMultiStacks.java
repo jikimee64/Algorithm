@@ -15,12 +15,11 @@
 //public class FixedMultiStacks {
 //
 //    private int numOfStacks = 3;
-//    private int stackSize = 3;
+//    private int stackSize;
 //    private int[] values;
-//    private int[] sizes;
+//    private int[] sizes; // 각 스택의 현재 위치를 보관 (크기는 numOfStacks)과 동일
 //
 //    public FixedMultiStacks(int stackSize) {
-//
 //    }
 //
 //    public static void main(String[] args) {
@@ -68,13 +67,14 @@
 //    }
 //
 //    void push(int stackNum, int data) throws FullStackException {
-//
 //    }
 //
+//    //getTopIndex() 유념
 //    int pop(int stackNum) throws FullStackException {
 //
 //    }
 //
+//    //getTopIndex() 유념
 //    int peek(int stackNum) {
 //    }
 //
