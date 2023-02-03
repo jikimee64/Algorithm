@@ -1,13 +1,5 @@
 package com.soap.stack;
 
-class FullStackException extends RuntimeException {
-
-}
-
-class EmptyStackException extends RuntimeException {
-
-}
-
 /**
  * 배열로 스택 구현 (고정길이 스택)
  * 배열 하나로 스택 구현

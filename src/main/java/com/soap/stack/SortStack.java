@@ -3,7 +3,7 @@ package com.soap.stack;
 public class SortStack {
 
     public static void main(String[] args) {
-        Stack<Integer> s1 = new Stack<>();
+        CustomStack<Integer> s1 = new CustomStack<>();
         s1.push(3);
         s1.push(5);
         s1.push(1);
@@ -15,8 +15,8 @@ public class SortStack {
         System.out.println(s1.pop()); // 6
     }
 
-    private static void sort(Stack<Integer> s1) {
-        Stack<Integer> s2 = new Stack<>();
+    private static void sort(CustomStack<Integer> s1) {
+        CustomStack<Integer> s2 = new CustomStack<>();
         while (!s1.isEmpty()) {
             Integer pop = s1.pop();
             while (!s2.isEmpty() && s2.peek() > pop) {
