@@ -1,11 +1,73 @@
 package com.soap.stack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SetOfStacks2 {
 
     public static void main(String[] args) {
 
     }
 
+}
+
+class InnerSetOfStacks2 {
+    int capacity;
+    List<Stack<Integer>> stacks = new ArrayList<>();
+
+    public InnerSetOfStacks2(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void addStack() {
+        stacks.add(new Stack<>(capacity));
+    }
+
+    public void removeLastStack() {
+        stacks.remove(stacks.size() - 1);
+    }
+
+    public Stack<Integer> getLastSack() {
+        if (stacks.size() == 0) {
+            return null;
+        }
+        return stacks.get(stacks.size() - 1);
+    }
+
+    public void push(int data) {
+        Stack<Integer> last = getLastSack();
+        if (last == null || last.isFull()) {
+            addStack();
+            last = getLastSack();
+        }
+        try {
+            last.push(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int pop() {
+        Stack<Integer> last = getLastSack();
+        if (last == null || last.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        int data = last.pop();
+        if (last.isEmpty()) {
+            removeLastStack();
+        }
+        return data;
+    }
+
+    // 핵심
+    public int popAt(int index) {
+
+    }
+
+    // 핵심2
+    public void shiftLeft(int index) {
+
+    }
 }
 
 class Stack<E> {
