@@ -60,14 +60,17 @@ class InnerSetOfStacks2 {
     }
 
     // 핵심
-    public int popAt(int index) {
-
-    }
-
-    // 핵심2
-    public void shiftLeft(int index) {
-
-    }
+    //예외처리 if문 3개 추가
+    // for문 X
+//    public int popAt(int index) {
+//
+//    }
+//
+//    // 핵심2
+//    // 재귀, try catch 하나
+//    public void shiftLeft(int index) {
+//
+//    }
 }
 
 class Stack<E> {
@@ -102,7 +105,7 @@ class Stack<E> {
         push(n);
     }
 
-    private void push(Node n) {
+    public void push(Node n) {
         if (isEmpty()) {
             top = n;
             bottom = n;
@@ -114,13 +117,35 @@ class Stack<E> {
         size++;
     }
 
-//    public E pop() {
-//
-//    }
-//
-//    public Node popBottom() {
-//
-//    }
+    public E pop() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        E data = top.data;
+        top = top.below;
+        if (top == null) {
+            bottom = null;
+        } else {
+            top.above = null;
+        }
+        size--;
+        return data;
+    }
+
+    public Node popBottom() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        Node originBottom = bottom;
+        bottom = bottom.above;
+        if (bottom == null) {
+            top = null;
+        } else {
+            bottom.below = null;
+        }
+        size--;
+        return originBottom;
+    }
 
     class Node {
         E data;
