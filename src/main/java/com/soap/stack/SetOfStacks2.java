@@ -59,18 +59,45 @@ class InnerSetOfStacks2 {
         return data;
     }
 
-    // 핵심
-    //예외처리 if문 3개 추가
-    // for문 X
-//    public int popAt(int index) {
-//
-//    }
-//
-//    // 핵심2
-//    // 재귀, try catch 하나
-//    public void shiftLeft(int index) {
-//
-//    }
+    public int popAt(int index) {
+        if (stacks.size() <= 0) {
+            throw new EmptyStackException();
+        }
+
+        if (index < 0 || index >= stacks.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Stack<Integer> stack = stacks.get(index);
+
+        if (stack == null || stack.isEmpty()) {
+            throw new EmptyStackException();
+        }
+
+        Integer pop = stack.pop();
+        if (index < stacks.size() - 1) {
+            shiftLeft(index);
+        }
+        return pop;
+    }
+
+    // 핵심2
+    // 재귀, try catch 하나
+    public void shiftLeft(int index) {
+        Stack<Integer> left = stacks.get(index);
+        Stack<Integer> right = stacks.get(index + 1);
+
+        try {
+            left.push(right.pop());
+        } catch (FullStackException e) {
+        }
+
+        if (right.isEmpty()) {
+            stacks.remove(index + 1);
+        }
+        shiftLeft(index + 1);
+
+    }
 }
 
 class Stack<E> {
