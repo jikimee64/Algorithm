@@ -9,9 +9,19 @@ public class binarySearch {
 
     }
 
-    public static int binarySearch(String[] items, String target, int begin,
-                                   int end){
-        return 0;
+    public static int binarySearch(String[] items, String target, int begin, int end){
+        if(begin > end){
+            return -1;
+        }
+        int middle = (begin + end) / 2;
+        int result = target.compareTo(items[middle]);
+        if(result == 0){
+            return middle;
+        }else if(result < 0){
+            return binarySearch(items, target, begin, middle - 1);
+        }else{
+            return binarySearch(items, target, middle + 1, end);
+        }
     }
 
 }
