@@ -8,8 +8,15 @@ public class MaxSearchV2 {
 
     }
 
-    int findMax(int[] data, int begin, int end){
-        return 0;
+    int findMax(int[] data, int begin, int end) {
+        if (begin > end) {
+            return -1;
+        }
+        int middle = (begin + end) / 2;
+        int max = findMax(data, begin, middle);
+        int max2 = findMax(data, middle + 1, end);
+
+        return Math.max(max, max2);
     }
 
 }
