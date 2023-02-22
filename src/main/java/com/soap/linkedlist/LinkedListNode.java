@@ -29,6 +29,16 @@ public class LinkedListNode {
         ll3.append(2);
         ll3.removeDups();
         ll3.retrieve(); // 2
+
+        //deleteNode
+        LinkedList ll4 = new LinkedList();
+        ll4.append(1);
+        ll4.append(2);
+        ll4.append(3);
+        ll4.append(4);
+
+        //deleteNode();
+
     }
 }
 
@@ -71,6 +81,14 @@ class LinkedList {
      */
     void removeDups() {
 
+    }
+
+    /**
+     * 단방향 Linked List 중간노드 삭제 in Java
+     * 처음과 마지막 노드는 지우지 못함
+     */
+    boolean deleteNode(Node n) {
+        return true;
     }
 
     /**
