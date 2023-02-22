@@ -3,14 +3,32 @@ package com.soap.linkedlist;
 public class LinkedListNode {
 
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.append(1);
-        ll.append(2);
-        ll.append(3);
-        ll.append(4);
-        ll.retrieve();
-        ll.delete(1);
-        ll.retrieve();
+//        LinkedList ll = new LinkedList();
+//        ll.append(1);
+//        ll.append(2);
+//        ll.append(3);
+//        ll.append(4);
+//        ll.retrieve();
+//        ll.delete(1);
+//        ll.retrieve();
+
+        //removeDups
+        LinkedList ll2 = new LinkedList();
+        ll2.append(2);
+        ll2.append(1);
+        ll2.append(2);
+        ll2.append(3);
+        ll2.append(4);
+        ll2.append(4);
+        ll2.append(2);
+        ll2.removeDups();
+        ll2.retrieve(); // 2 -> 1 -> 3 -> 4
+
+        LinkedList ll3 = new LinkedList();
+        ll3.append(2);
+        ll3.append(2);
+        ll3.removeDups();
+        ll3.retrieve(); // 2
     }
 }
 
@@ -44,6 +62,14 @@ class LinkedList {
                 n = n.next;
             }
         }
+
+    }
+
+    /**
+     * Linked List 중복값 삭제 in Java
+     * 버퍼 사용 X
+     */
+    void removeDups() {
 
     }
 
