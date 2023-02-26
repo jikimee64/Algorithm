@@ -1,5 +1,11 @@
 package com.soap.linkedlist;
 
+import jdk.jfr.Label;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 public class LinkedListNode {
 
     public static void main(String[] args) {
@@ -39,7 +45,38 @@ public class LinkedListNode {
 
         //deleteNode();
 
+        //KthToLastV1
+        LinkedList ll5 = new LinkedList();
+        ll5.append(1);
+        ll5.append(2);
+        ll5.append(3);
+        ll5.append(4);
+
+        System.out.println(ll5.KthToLastV1(ll5.header, 1).data); // 4
+        System.out.println(ll5.KthToLastV1(ll5.header, 2).data); // 3
+        System.out.println(ll5.KthToLastV1(ll5.header, 3).data); // 2
+        System.out.println(ll5.KthToLastV1(ll5.header, 4).data); // 1
+
+        //KthToLastV2
+        LinkedList ll6 = new LinkedList<>();
+        ll6.append(1);
+        ll6.append(2);
+        ll6.append(3);
+        ll6.append(4);
+        int k = 2;
+        Reference r = new Reference();
+        Node found = ll6.KthToLastV2(ll6.getFirst(), k, r);
+        System.out.println(found.data);
     }
+}
+
+// KthToLastV2
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@ToString
+class Reference {
+    public int count = 0;
 }
 
 /**
@@ -79,7 +116,7 @@ class LinkedList {
      * Linked List 중복값 삭제 in Java
      * 버퍼 사용 X
      */
-    void removeDups() {
+    public void removeDups() {
 
     }
 
@@ -87,8 +124,8 @@ class LinkedList {
      * 단방향 Linked List 중간노드 삭제 in Java
      * 처음과 마지막 노드는 지우지 못함
      */
-    boolean deleteNode(Node n) {
-        if(n == null || n.next == null){
+    public boolean deleteNode(Node n) {
+        if (n == null || n.next == null) {
             return false;
         }
 
@@ -97,6 +134,41 @@ class LinkedList {
 
         return true;
     }
+
+    /**
+     * 단방향 LinkedList의 끝에서 k번째 노드를 찾는 알고리즘
+     * '앞에서 n번째면 뒤에서 k번째다' 원리 이용
+     * 단방향 Linked List 뒤부터 세기 첫번째 방법 (쉽게 풀라고 만든 문제가 아님)
+     */
+    public Node KthToLastV1(Node first, int k) {
+        return null;
+    }
+
+    /**
+     * 단방향 LinkedList의 끝에서 k번째 노드를 찾는 알고리즘
+     * 단방향 Linked List 뒤부터 세기 두번째 방법 (재귀호출)
+     * 몇번째 노드인지만 반환하는 함수
+     */
+    public int KthToLastV2(Node n, int k) {
+        return 0;
+    }
+
+    /**
+     * 단방향 LinkedList의 끝에서 k번째 노드를 찾는 알고리즘
+     * 단방향 Linked List 뒤부터 세기 두번째 방법 (재귀호출)
+     */
+    public Node KthToLastV2(Node n, int k, Reference r) {
+        return null;
+    }
+
+    /**
+     * 단방향 LinkedList의 끝에서 k번째 노드를 찾는 알고리즘
+     * 단방향 Linked List 뒤부터 세기 세번째 방법 (포인터 이용)
+     */
+    public Node KthToLastV3(Node first, int k) {
+        return null;
+    }
+
 
     /**
      * 돌면서 출력
