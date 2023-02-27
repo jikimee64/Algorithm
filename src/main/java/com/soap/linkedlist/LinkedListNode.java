@@ -108,7 +108,6 @@ class LinkedList {
                 n = n.next;
             }
         }
-
     }
 
     /**
@@ -152,7 +151,18 @@ class LinkedList {
      * 단방향 Linked List 뒤부터 세기 첫번째 방법 (쉽게 풀라고 만든 문제가 아님)
      */
     public Node KthToLastV1(Node first, int k) {
-        return null;
+        Node n = first;
+        int totalCount = 1;
+        while (n.next != null) {
+            totalCount += 1;
+            n = n.next;
+        }
+        n = first;
+        for (int i = 1; i < totalCount - k + 1; i++) {
+            n = n.next;
+        }
+
+        return n;
     }
 
     /**
