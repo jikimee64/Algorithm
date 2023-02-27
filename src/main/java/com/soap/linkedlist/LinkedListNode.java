@@ -1,6 +1,5 @@
 package com.soap.linkedlist;
 
-import jdk.jfr.Label;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -117,6 +116,18 @@ class LinkedList {
      * 버퍼 사용 X
      */
     public void removeDups() {
+        Node n = header;
+        while (n != null && n.next != null) {
+            Node r = n;
+            while (r.next != null) {
+                if (n.data == r.next.data) {
+                    r.next = r.next.next;
+                } else {
+                    r = r.next;
+                }
+            }
+            n = n.next;
+        }
 
     }
 
