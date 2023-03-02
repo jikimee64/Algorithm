@@ -18,53 +18,53 @@ public class LinkedListNode {
 //        ll.retrieve();
 
         //removeDups
-        LinkedList ll2 = new LinkedList();
-        ll2.append(2);
-        ll2.append(1);
-        ll2.append(2);
-        ll2.append(3);
-        ll2.append(4);
-        ll2.append(4);
-        ll2.append(2);
-        ll2.removeDups();
-        ll2.retrieve(); // 2 -> 1 -> 3 -> 4
-
-        LinkedList ll3 = new LinkedList();
-        ll3.append(2);
-        ll3.append(2);
-        ll3.removeDups();
-        ll3.retrieve(); // 2
-
-        //deleteNode
-        LinkedList ll4 = new LinkedList();
-        ll4.append(1);
-        ll4.append(2);
-        ll4.append(3);
-        ll4.append(4);
-
-        //deleteNode();
-
-        //KthToLastV1
-        LinkedList ll5 = new LinkedList();
-        ll5.append(1);
-        ll5.append(2);
-        ll5.append(3);
-        ll5.append(4);
-
-        System.out.println(ll5.KthToLastV1(ll5.header, 1).data); // 4
-        System.out.println(ll5.KthToLastV1(ll5.header, 2).data); // 3
-        System.out.println(ll5.KthToLastV1(ll5.header, 3).data); // 2
-        System.out.println(ll5.KthToLastV1(ll5.header, 4).data); // 1
+//        LinkedList ll2 = new LinkedList();
+//        ll2.append(2);
+//        ll2.append(1);
+//        ll2.append(2);
+//        ll2.append(3);
+//        ll2.append(4);
+//        ll2.append(4);
+//        ll2.append(2);
+//        ll2.removeDups();
+//        ll2.retrieve(); // 2 -> 1 -> 3 -> 4
+//
+//        LinkedList ll3 = new LinkedList();
+//        ll3.append(2);
+//        ll3.append(2);
+//        ll3.removeDups();
+//        ll3.retrieve(); // 2
+//
+//        //deleteNode
+//        LinkedList ll4 = new LinkedList();
+//        ll4.append(1);
+//        ll4.append(2);
+//        ll4.append(3);
+//        ll4.append(4);
+//
+//        //deleteNode();
+//
+//        //KthToLastV1
+//        LinkedList ll5 = new LinkedList();
+//        ll5.append(1);
+//        ll5.append(2);
+//        ll5.append(3);
+//        ll5.append(4);
+//
+//        System.out.println(ll5.KthToLastV1(ll5.header, 1).data); // 4
+//        System.out.println(ll5.KthToLastV1(ll5.header, 2).data); // 3
+//        System.out.println(ll5.KthToLastV1(ll5.header, 3).data); // 2
+//        System.out.println(ll5.KthToLastV1(ll5.header, 4).data); // 1
 
         //KthToLastV2
-        LinkedList ll6 = new LinkedList<>();
+        LinkedList ll6 = new LinkedList();
         ll6.append(1);
         ll6.append(2);
         ll6.append(3);
         ll6.append(4);
-        int k = 2;
+        int k = 3;
         Reference r = new Reference();
-        Node found = ll6.KthToLastV2(ll6.getFirst(), k, r);
+        LinkedList.Node found = ll6.KthToLastV2(ll6.header, k, r);
         System.out.println(found.data);
     }
 }
@@ -171,15 +171,33 @@ class LinkedList {
      * 몇번째 노드인지만 반환하는 함수
      */
     public int KthToLastV2(Node n, int k) {
-        return 0;
+        if (n == null) {
+            return 0;
+        }
+
+        int i = KthToLastV2(n.next, k) + 1;
+        if (i == k) {
+            System.out.println("i: " + i + "k: " + n.data);
+        }
+        return i;
     }
 
     /**
      * 단방향 LinkedList의 끝에서 k번째 노드를 찾는 알고리즘
      * 단방향 Linked List 뒤부터 세기 두번째 방법 (재귀호출)
+     * Reference 사용
      */
     public Node KthToLastV2(Node n, int k, Reference r) {
-        return null;
+        if (n == null) {
+            return n;
+        }
+
+        Node node = KthToLastV2(n.next, k, r);
+        r.count++;
+        if (r.count == k) {
+            return n;
+        }
+        return node;
     }
 
     /**
