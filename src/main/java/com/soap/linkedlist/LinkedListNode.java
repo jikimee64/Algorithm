@@ -208,7 +208,6 @@ class LinkedList {
         return null;
     }
 
-
     /**
      * 돌면서 출력
      */
