@@ -246,12 +246,23 @@ class LinkedList {
 
     /**
      * Linked List 값에 따라 나누기 첫번째 방법
-     * 링크드 리스트 2개 이용(s1, s2, e1, e2)
+     * 링크드 리스트 2개 이용(s1, s2, e1, e2): 포인터 4개
      * @param n
      * @param x
      * @return
      */
     private static Node Partition(Node n, int x) {
+        return null;
+    }
+
+    /**
+     * Linked List 값에 따라 나누기 두번째 방법
+     * 링크드 리스트 1개 이용, 포인터 2개 이용
+     * @param n
+     * @param x
+     * @return
+     */
+    private static Node PartitionV2(Node n, int x){
         return null;
     }
 
