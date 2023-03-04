@@ -203,9 +203,30 @@ class LinkedList {
     /**
      * 단방향 LinkedList의 끝에서 k번째 노드를 찾는 알고리즘
      * 단방향 Linked List 뒤부터 세기 세번째 방법 (포인터 이용)
+     *      r
+     *  O O O O O
+     *  n
+     *
+     *            r
+     *  0 0 0 0 0
+     *        n
      */
     public Node KthToLastV3(Node first, int k) {
-        return null;
+        if(first == null || k < 1){
+            return null;
+        }
+        Node r = first;
+        Node n = first;
+
+        for(int i = 0; i < k; i++){
+            r = r.next;
+        }
+
+        while(r != null){
+            r = r.next;
+            n = n.next;
+        }
+        return n;
     }
 
     /**
