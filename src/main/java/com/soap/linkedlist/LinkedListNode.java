@@ -1,9 +1,11 @@
-package com.soap.linkedlist;
+`package com.soap.linkedlist;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import javax.security.auth.Refreshable;
 
 public class LinkedListNode {
 
@@ -242,11 +244,20 @@ class LinkedList {
         System.out.println();
     }
 
+    /**
+     * Linked List 값에 따라 나누기 첫번째 방법
+     * 링크드 리스트 2개 이용(s1, s2, e1, e2)
+     * @param n
+     * @param x
+     * @return
+     */
+    private static Node Partition(Node n, int x) {
+        return null;
+    }
+
     static class Node {
         int data;
         Node next = null;
     }
 
-
 }
-
