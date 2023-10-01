@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.security.auth.Refreshable;
-
 public class LinkedListNode {
 
     public static void main(String[] args) {

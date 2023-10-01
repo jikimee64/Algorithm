@@ -13,7 +13,7 @@ import java.util.Stack;
 public class SetOfStacks {
 
     private int capacity; // 하나의 스택에 들어가는 용량
-    private List<java.util.Stack<Integer>> stacks = new ArrayList<>();
+    private List<Stack<Integer>> stacks = new ArrayList<>();
 
     public SetOfStacks(int capacity) {
         this.capacity = capacity;
@@ -38,7 +38,7 @@ public class SetOfStacks {
         System.out.println(sos.pop()); // 5
     }
 
-    java.util.Stack<Integer> getLastStack() {
+    Stack<Integer> getLastStack() {
         if(stacks.isEmpty()){
             return null;
         }
