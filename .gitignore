@@ -2,7 +2,7 @@ HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
+!**/src/a0902/**/build/
 !**/src/test/**/build/
 
 ### STS ###
@@ -20,7 +20,7 @@ build/
 *.iml
 *.ipr
 out/
-!**/src/main/**/out/
+!**/src/a0902/**/out/
 !**/src/test/**/out/
 
 ### NetBeans ###
