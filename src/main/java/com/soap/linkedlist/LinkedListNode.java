@@ -1,4 +1,4 @@
-`package com.soap.linkedlist;
+package com.soap.linkedlist;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
